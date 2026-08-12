@@ -1,0 +1,5 @@
+.previewCard {
+  background: var(--color-surface-card);
+  height: 100px;
+  width: 100px;
+}

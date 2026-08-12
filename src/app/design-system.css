@@ -1,0 +1,625 @@
+/* Design system */
+
+/* =========================
+   BREAKPOINTS
+   ========================= */
+
+/*
+ * sm: 30rem | md: 48rem | lg: 64rem | xl: 80rem | 2xl: 90rem
+ * Keep these as reference values until native custom media is supported by
+ * the build. Media queries use the corresponding literal value below.
+ */
+
+:root {
+  /* =========================
+     BRAND — COLOR PRIMITIVES
+     ========================= */
+
+  --color-blue-50: #dceefb;
+  --color-blue-100: #b6e0fe;
+  --color-blue-200: #84c5f4;
+  --color-blue-300: #62b0e8;
+  --color-blue-400: #4098d7;
+  --color-blue-500: #2680c2;
+  --color-blue-600: #186faf;
+  --color-blue-700: #0f609b;
+  --color-blue-800: #0a558c;
+  --color-blue-900: #003e6b;
+  --color-blue-1000: #002641;
+
+  --color-teal-50: #e0fcff;
+  --color-teal-100: #bef8fd;
+  --color-teal-200: #87eaf2;
+  --color-teal-300: #54d1db;
+  --color-teal-400: #38bec9;
+  --color-teal-500: #2cb1bc;
+  --color-teal-600: #14919b;
+  --color-teal-700: #0e7c86;
+  --color-teal-800: #0a6c74;
+  --color-teal-900: #044e54;
+
+  --color-slate-50: #f0f4f8;
+  --color-slate-100: #d9e2ec;
+  --color-slate-200: #bcccdc;
+  --color-slate-300: #9fb3c8;
+  --color-slate-400: #829ab1;
+  --color-slate-500: #627d98;
+  --color-slate-600: #486581;
+  --color-slate-700: #334e68;
+  --color-slate-800: #243b53;
+  --color-slate-900: #102a43;
+
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a1a1a1;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
+  --color-gray-1000: #0a0a0a;
+
+  --color-orange-50: #fef2e7;
+  --color-orange-100: #fde5cf;
+  --color-orange-200: #fccb9f;
+  --color-orange-300: #fab170;
+  --color-orange-400: #f99740;
+  --color-orange-500: #f77d10;
+  --color-orange-600: #c6640d;
+  --color-orange-700: #944b0a;
+  --color-orange-800: #633206;
+  --color-orange-900: #8d2b0b;
+
+  --color-green-50: #f0fdf4;
+  --color-green-100: #dcfce7;
+  --color-green-200: #b9f8cf;
+  --color-green-300: #7bf1a8;
+  --color-green-400: #05df72;
+  --color-green-500: #00c950;
+  --color-green-600: #00a63e;
+  --color-green-700: #008236;
+  --color-green-800: #016630;
+
+  --color-red-50: #ffeeee;
+  --color-red-100: #facdcd;
+  --color-red-200: #f29b9b;
+  --color-red-300: #e66a6a;
+  --color-red-400: #ba2525;
+  --color-red-500: #a61b1b;
+  --color-red-600: #911111;
+  --color-red-700: #911111;
+  --color-red-800: #780a0a;
+  --color-red-900: #610404;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* =========================
+     BRAND — TYPOGRAPHY
+     ========================= */
+
+  --font-family-headings: var(--font-roboto-slab), serif;
+  --font-family-text: var(--font-roboto), sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* =========================
+     BRAND — SCALE
+     ========================= */
+
+  --scale-0: 0;
+  --scale-25: 0.0625rem;
+  --scale-50: 0.125rem;
+  --scale-100: 0.25rem;
+  --scale-200: 0.5rem;
+  --scale-300: 0.75rem;
+  --scale-400: 1rem;
+  --scale-500: 1.25rem;
+  --scale-600: 1.5rem;
+  --scale-700: 1.75rem;
+  --scale-800: 2rem;
+  --scale-900: 2.5rem;
+  --scale-1000: 3.25rem;
+  --scale-1100: 4rem;
+
+  /* =========================
+     ALIAS — COLORS
+     ========================= */
+
+  --color-primary-50: var(--color-blue-50);
+  --color-primary-100: var(--color-blue-100);
+  --color-primary-200: var(--color-blue-200);
+  --color-primary-300: var(--color-blue-300);
+  --color-primary-400: var(--color-blue-400);
+  --color-primary-500: var(--color-blue-500);
+  --color-primary-600: var(--color-blue-600);
+  --color-primary-700: var(--color-blue-700);
+  --color-primary-800: var(--color-blue-800);
+  --color-primary-900: var(--color-blue-900);
+  --color-primary-1000: var(--color-blue-1000);
+
+  --color-secondary-50: var(--color-teal-50);
+  --color-secondary-100: var(--color-teal-100);
+  --color-secondary-200: var(--color-teal-200);
+  --color-secondary-300: var(--color-teal-300);
+  --color-secondary-400: var(--color-teal-400);
+  --color-secondary-500: var(--color-teal-500);
+  --color-secondary-600: var(--color-teal-600);
+  --color-secondary-700: var(--color-teal-700);
+  --color-secondary-800: var(--color-teal-800);
+  --color-secondary-900: var(--color-teal-900);
+
+  --color-cool-neutral-50: var(--color-slate-50);
+  --color-cool-neutral-100: var(--color-slate-100);
+  --color-cool-neutral-200: var(--color-slate-200);
+  --color-cool-neutral-300: var(--color-slate-300);
+  --color-cool-neutral-400: var(--color-slate-400);
+  --color-cool-neutral-500: var(--color-slate-500);
+  --color-cool-neutral-600: var(--color-slate-600);
+  --color-cool-neutral-700: var(--color-slate-700);
+  --color-cool-neutral-800: var(--color-slate-800);
+  --color-cool-neutral-900: var(--color-slate-900);
+
+  --color-neutral-50: var(--color-gray-50);
+  --color-neutral-100: var(--color-gray-100);
+  --color-neutral-200: var(--color-gray-200);
+  --color-neutral-300: var(--color-gray-300);
+  --color-neutral-400: var(--color-gray-400);
+  --color-neutral-500: var(--color-gray-500);
+  --color-neutral-600: var(--color-gray-600);
+  --color-neutral-700: var(--color-gray-700);
+  --color-neutral-800: var(--color-gray-800);
+  --color-neutral-900: var(--color-gray-900);
+  --color-neutral-white: var(--color-white);
+  --color-neutral-black: var(--color-black);
+
+  --color-vivid-50: var(--color-orange-50);
+  --color-vivid-100: var(--color-orange-100);
+  --color-vivid-200: var(--color-orange-200);
+  --color-vivid-300: var(--color-orange-300);
+  --color-vivid-400: var(--color-orange-400);
+  --color-vivid-500: var(--color-orange-500);
+  --color-vivid-600: var(--color-orange-600);
+  --color-vivid-700: var(--color-orange-700);
+  --color-vivid-800: var(--color-orange-800);
+  --color-vivid-900: var(--color-orange-900);
+
+  --color-success-50: var(--color-green-50);
+  --color-success-100: var(--color-green-100);
+  --color-success-200: var(--color-green-200);
+  --color-success-300: var(--color-green-300);
+  --color-success-400: var(--color-green-400);
+  --color-success-500: var(--color-green-500);
+  --color-success-600: var(--color-green-600);
+  --color-success-700: var(--color-green-700);
+  --color-success-800: var(--color-green-800);
+
+  --color-error-50: var(--color-red-50);
+  --color-error-100: var(--color-red-100);
+  --color-error-200: var(--color-red-200);
+  --color-error-300: var(--color-red-300);
+  --color-error-400: var(--color-red-400);
+  --color-error-500: var(--color-red-500);
+  --color-error-600: var(--color-red-600);
+  --color-error-700: var(--color-red-700);
+  --color-error-800: var(--color-red-800);
+  --color-error-900: var(--color-red-900);
+
+  /* =========================
+     ALIAS — BORDERS
+     ========================= */
+
+  --border-width-none: var(--scale-0);
+  --border-width-sm: var(--scale-25);
+  --border-width-md: var(--scale-50);
+  --border-width-lg: var(--scale-100);
+
+  --border-radius-none: var(--scale-0);
+  --border-radius-sm: var(--scale-100);
+  --border-radius-md: var(--scale-200);
+  --border-radius-lg: var(--scale-400);
+  --border-radius-xl: var(--scale-600);
+  --border-radius-full: var(--scale-1100);
+
+  /* =========================
+     ALIAS — SHADOWS
+     ========================= */
+
+  --shadow-base:
+    0 0.125rem 0.125rem rgba(0, 0, 0, 0.06),
+    0 0.25rem 0.1875rem rgba(0, 0, 0, 0.07);
+
+  --shadow-lg:
+    0 0.625rem 0.5rem rgba(0, 0, 0, 0.04), 0 0.25rem 0.1875rem rgba(0, 0, 0, 0);
+
+  /* =========================
+     MAPPED — LIGHT THEME
+     ========================= */
+
+  --icon-mood: "Sun";
+
+  --color-text-headings: var(--color-cool-neutral-900);
+  --color-text-body: var(--color-cool-neutral-800);
+  --color-text-placeholder: var(--color-cool-neutral-400);
+  --color-text-disabled: var(--color-neutral-600);
+  --color-text-on-action: var(--color-white);
+  --color-text-information: var(--color-primary-600);
+  --color-text-action: var(--color-primary-800);
+  --color-text-action-hover: var(--color-primary-900);
+  --color-text-highlight: var(--color-secondary-700);
+  --color-text-light: var(--color-neutral-100);
+
+  --icon-size-base: 1.25rem;
+  --icon-size-large: 2.5rem;
+  --color-icon-default: var(--color-cool-neutral-800);
+  --color-icon-on-action: var(--color-white);
+  --color-icon-action: var(--color-primary-800);
+  --color-icon-action-hover: var(--color-primary-900);
+  --color-icon-disabled: var(--color-neutral-600);
+  --color-icon-highlight: var(--color-secondary-600);
+  --color-icon-success: var(--color-success-200);
+  --color-icon-error: var(--color-error-200);
+  --color-icon-light: var(--color-cool-neutral-100);
+
+  --color-surface-page: var(--color-cool-neutral-50);
+  --color-surface-card: var(--color-neutral-white);
+  --color-surface-success: var(--color-success-700);
+  --color-surface-error: var(--color-error-700);
+  --color-surface-disabled: var(--color-neutral-100);
+  --color-surface-page-fancy: var(--color-primary-50);
+  --color-surface-card-pure: var(--color-neutral-white);
+  --color-surface-action: var(--color-primary-800);
+  --color-surface-action-hover: var(--color-primary-900);
+  --color-surface-action-hover-light: var(--color-primary-50);
+  --color-surface-highlight: var(--color-secondary-50);
+
+  --color-border-default: var(--color-neutral-200);
+  --color-border-success: var(--color-success-200);
+  --color-border-error: var(--color-error-200);
+  --color-border-disabled: var(--color-neutral-200);
+  --color-border-light: var(--color-cool-neutral-100);
+  --color-border-dark: var(--color-neutral-700);
+  --color-border-action: var(--color-primary-800);
+  --color-border-action-hover: var(--color-primary-900);
+  --color-border-highlight: var(--color-secondary-700);
+
+  /* =========================
+     RESPONSIVE — MOBILE FIRST
+     Figma mobile reference: 27.5rem
+     ========================= */
+
+  --design-device-width: 27.5rem;
+
+  --font-size-h1: 3rem;
+  --line-height-h1: 3.5rem;
+  --paragraph-spacing-h1: 4rem;
+
+  --font-size-h2: 2.5rem;
+  --line-height-h2: 3rem;
+  --paragraph-spacing-h2: 3rem;
+
+  --font-size-h3: 2rem;
+  --line-height-h3: 2.5rem;
+  --paragraph-spacing-h3: 2rem;
+
+  --font-size-h4: 1.75rem;
+  --line-height-h4: 2rem;
+  --paragraph-spacing-h4: 1.5rem;
+
+  --font-size-h5: 1.5rem;
+  --line-height-h5: 1.75rem;
+  --paragraph-spacing-h5: 1.25rem;
+
+  --font-size-h6: 1.25rem;
+  --line-height-h6: 1.5rem;
+  --paragraph-spacing-h6: 1.25rem;
+
+  --font-size-paragraph-xl: 1.5rem;
+  --line-height-paragraph-xl: 1.75rem;
+  --paragraph-spacing-xl: 1.25rem;
+
+  --font-size-paragraph-lg: 1.25rem;
+  --line-height-paragraph-lg: 1.5rem;
+  --line-height-paragraph-lg-tight: 1.25rem;
+  --paragraph-spacing-lg: 1.25rem;
+
+  --font-size-paragraph-md: 1rem;
+  --line-height-paragraph-md: 1.25rem;
+  --paragraph-spacing-md: 1.25rem;
+  --paragraph-width-md: 33.8125rem;
+
+  --font-size-paragraph-sm: 0.875rem;
+  --line-height-paragraph-sm: 1rem;
+  --paragraph-spacing-sm: 1.25rem;
+
+  --font-size-paragraph-xsm: 0.75rem;
+  --line-height-paragraph-xsm: 1rem;
+  --paragraph-spacing-xsm: 1.25rem;
+}
+
+/* =========================
+   MAPPED — DARK THEME
+   ========================= */
+
+[data-theme="dark"] {
+  --icon-mood: "Moon";
+
+  --color-text-headings: var(--color-cool-neutral-50);
+  --color-text-body: var(--color-cool-neutral-100);
+  --color-text-placeholder: var(--color-cool-neutral-400);
+  --color-text-disabled: var(--color-neutral-200);
+  --color-text-on-action: var(--color-black);
+  --color-text-information: var(--color-primary-400);
+  --color-text-action: var(--color-primary-300);
+  --color-text-action-hover: var(--color-primary-200);
+  --color-text-highlight: var(--color-secondary-700);
+  --color-text-light: var(--color-neutral-800);
+
+  --icon-size-base: 1.25rem;
+  --icon-size-large: 2.5rem;
+  --color-icon-default: var(--color-cool-neutral-100);
+  --color-icon-on-action: var(--color-black);
+  --color-icon-action: var(--color-primary-300);
+  --color-icon-action-hover: var(--color-primary-200);
+  --color-icon-disabled: var(--color-neutral-200);
+  --color-icon-highlight: var(--color-secondary-50);
+  --color-icon-success: var(--color-success-600);
+  --color-icon-error: var(--color-error-600);
+  --color-icon-light: var(--color-neutral-700);
+
+  --color-surface-page: var(--color-neutral-800);
+  --color-surface-card: var(--color-neutral-900);
+  --color-surface-success: var(--color-success-400);
+  --color-surface-error: var(--color-error-400);
+  --color-surface-disabled: var(--color-neutral-700);
+  --color-surface-page-fancy: var(--color-primary-1000);
+  --color-surface-card-pure: var(--color-neutral-black);
+  --color-surface-action: var(--color-primary-300);
+  --color-surface-action-hover: var(--color-primary-200);
+  --color-surface-action-hover-light: var(--color-primary-1000);
+  --color-surface-highlight: var(--color-secondary-50);
+
+  --color-border-default: var(--color-neutral-600);
+  --color-border-success: var(--color-success-600);
+  --color-border-error: var(--color-error-600);
+  --color-border-disabled: var(--color-neutral-600);
+  --color-border-light: var(--color-neutral-700);
+  --color-border-dark: var(--color-neutral-100);
+  --color-border-action: var(--color-primary-300);
+  --color-border-action-hover: var(--color-primary-200);
+  --color-border-highlight: var(--color-secondary-700);
+}
+
+/* =========================
+   RESPONSIVE — MD AND UP
+   md = 48rem
+
+   Figma's Desktop mode was designed on a 90rem artboard.
+   We apply its typography from md upward; the artboard width itself is
+   retained only as design reference data.
+   ========================= */
+
+@media (min-width: 48rem) {
+  :root {
+    --design-device-width: 90rem;
+
+    --font-size-h1: 3.75rem;
+    --line-height-h1: 4.5rem;
+
+    --font-size-h2: 3rem;
+    --line-height-h2: 3.5rem;
+
+    --font-size-h3: 2.5rem;
+    --line-height-h3: 3rem;
+
+    --font-size-h4: 2rem;
+    --line-height-h4: 2.5rem;
+  }
+}
+
+/* =========================
+   GLOBAL BASE
+   ========================= */
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--font-family-text);
+  color: var(--color-text-body);
+  background: var(--color-surface-page);
+}
+
+/* =========================
+   FIGMA TEXT STYLES — HEADINGS
+
+   Heading weights were exported as undefined, so they are intentionally
+   not hard-coded here until the intended Figma weight is confirmed.
+   ========================= */
+
+.text-heading-1 {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+}
+
+.text-heading-2 {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+}
+
+.text-heading-3 {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+}
+
+.text-heading-4 {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+}
+
+.text-heading-5 {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+}
+
+.text-heading-6 {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-h6);
+}
+
+/* =========================
+   FIGMA TEXT STYLES — BODY XS
+   ========================= */
+
+.text-body-xs {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-xsm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-paragraph-xsm);
+}
+
+.text-body-xs-semibold {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-xsm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-paragraph-xsm);
+}
+
+.text-link-xs {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-xsm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-paragraph-xsm);
+  text-decoration: underline;
+}
+
+/* =========================
+   FIGMA TEXT STYLES — BODY SM
+   ========================= */
+
+.text-body-sm {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-paragraph-sm);
+}
+
+.text-body-sm-semibold {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-paragraph-sm);
+}
+
+.text-link-sm {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-paragraph-sm);
+  text-decoration: underline;
+}
+
+/* =========================
+   FIGMA TEXT STYLES — BODY MD
+   ========================= */
+
+.text-body-md {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-paragraph-md);
+}
+
+.text-body-md-semibold {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-paragraph-md);
+}
+
+.text-link-md {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-paragraph-md);
+  text-decoration: underline;
+}
+
+/* =========================
+   FIGMA TEXT STYLES — BODY LG
+   ========================= */
+
+.text-body-lg {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-paragraph-lg-tight);
+}
+
+.text-body-lg-semibold {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-paragraph-lg);
+}
+
+.text-body-lg-bold {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-paragraph-lg);
+}
+
+.text-link-lg {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-paragraph-lg);
+  text-decoration: underline;
+}
+
+/* =========================
+   FIGMA TEXT STYLES — BODY XL
+   ========================= */
+
+.text-body-xl {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-paragraph-xl);
+}
+
+.text-body-xl-semibold {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-paragraph-xl);
+}
+
+/* =========================
+   FIGMA EFFECT / SURFACE STYLES
+   ========================= */
+
+.surface-fancy {
+  background: var(--color-surface-page-fancy);
+}
+
+.shadow-card {
+  box-shadow: var(--shadow-base);
+}
+
+.shadow-card-lg {
+  box-shadow: var(--shadow-lg);
+}
