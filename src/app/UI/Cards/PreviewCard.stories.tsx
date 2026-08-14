@@ -13,13 +13,19 @@ type Story = StoryObj<typeof meta>;
 export const Left: Story = {
   args: {
     side: "left",
-    img: "/next.svg",
+    img: {
+      src: "/projects/speacs/placeholder.png",
+      alt: "Fresh clinical communication platform preview",
+      width: 300,
+      height: 250,
+    },
     href: "/projects",
     text: {
-      title: "Project Title",
-      subtext: "2026",
-      description: "A short description of the project goes here.",
-      pills: ["Next.js", "TypeScript"],
+      title: "Fresh",
+      subtext: "Klein Buendel • The Ohio State University",
+      description:
+        "Clinical communication platform helping ICU nurses generate personalized care plans for mechanically ventilated patients.",
+      pills: ["UX Design", "Product Design"],
     },
   },
 };

@@ -100,13 +100,20 @@
      BRAND — TYPOGRAPHY
      ========================= */
 
-  --font-family-headings: var(--font-roboto-slab), serif;
-  --font-family-text: var(--font-roboto), sans-serif;
+  --font-family-headings: var(--font-roboto-slab, serif);
+  --font-family-text: var(--font-roboto, sans-serif);
 
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+
+  /* =========================
+     BRAND — MOTION
+     ========================= */
+
+  --duration-interactive: 300ms;
+  --ease-interactive: ease-in-out;
 
   /* =========================
      BRAND — SCALE
@@ -234,6 +241,10 @@
     0 0.125rem 0.125rem rgba(0, 0, 0, 0.06),
     0 0.25rem 0.1875rem rgba(0, 0, 0, 0.07);
 
+  --shadow-base-hover:
+    0 0.25rem 0.375rem rgba(0, 0, 0, 0.055),
+    0 0.375rem 0.5rem rgba(0, 0, 0, 0.065);
+
   --shadow-lg:
     0 0.625rem 0.5rem rgba(0, 0, 0, 0.04), 0 0.25rem 0.1875rem rgba(0, 0, 0, 0);
 
@@ -245,7 +256,7 @@
 
   --color-text-headings: var(--color-cool-neutral-900);
   --color-text-body: var(--color-cool-neutral-800);
-  --color-text-placeholder: var(--color-cool-neutral-400);
+  --color-text-placeholder: var(--color-cool-neutral-600);
   --color-text-disabled: var(--color-neutral-600);
   --color-text-on-action: var(--color-white);
   --color-text-information: var(--color-primary-600);
@@ -351,7 +362,7 @@
 
   --color-text-headings: var(--color-cool-neutral-50);
   --color-text-body: var(--color-cool-neutral-100);
-  --color-text-placeholder: var(--color-cool-neutral-400);
+  --color-text-placeholder: var(--color-cool-neutral-200);
   --color-text-disabled: var(--color-neutral-200);
   --color-text-on-action: var(--color-black);
   --color-text-information: var(--color-primary-400);

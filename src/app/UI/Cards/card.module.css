@@ -1,0 +1,56 @@
+.previewCard {
+  background: var(--color-surface-card);
+  padding: var(--scale-800);
+  border-radius: var(--border-radius-md);
+  max-width: 1000px;
+  gap: var(--scale-700);
+  box-shadow: var(--shadow-base);
+  display: flex;
+  transition:
+    transform var(--duration-interactive) var(--ease-interactive),
+    box-shadow var(--duration-interactive) var(--ease-interactive);
+
+  &[data-side="right"] {
+    flex-direction: row-reverse;
+  }
+}
+
+.image {
+  border-radius: var(--border-radius-md);
+}
+
+.pillsContainer {
+  display: flex;
+  gap: var(--scale-200);
+  flex-wrap: wrap;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-300);
+}
+
+.headerWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-100);
+}
+
+.title {
+  color: var(--color-text-headings);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  line-height: normal;
+}
+
+.subtext {
+  color: var(--color-text-placeholder);
+}
