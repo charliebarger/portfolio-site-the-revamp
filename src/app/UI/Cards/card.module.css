@@ -1,21 +1,22 @@
 .previewCard {
   background: var(--color-surface-card);
-  padding: var(--scale-800);
+  width: 100%;
+  max-width: 62.5rem;
+  padding: var(--scale-400);
   border-radius: var(--border-radius-md);
-  max-width: 1000px;
-  gap: var(--scale-700);
+  gap: var(--scale-400);
   box-shadow: var(--shadow-base);
   display: flex;
+  flex-direction: column;
   transition:
     transform var(--duration-interactive) var(--ease-interactive),
     box-shadow var(--duration-interactive) var(--ease-interactive);
-
-  &[data-side="right"] {
-    flex-direction: row-reverse;
-  }
 }
 
 .image {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: var(--border-radius-md);
 }
 
@@ -27,8 +28,11 @@
 
 .textContainer {
   display: flex;
+  flex: 1;
+  min-width: 0;
   flex-direction: column;
   justify-content: space-between;
+  gap: var(--scale-600);
 }
 
 .textWrapper {
@@ -53,4 +57,21 @@
 
 .subtext {
   color: var(--color-text-placeholder);
+}
+
+@media (min-width: 48rem) {
+  .previewCard {
+    padding: var(--scale-800);
+    gap: var(--scale-700);
+    flex-direction: row;
+
+    &[data-side="right"] {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .image {
+    width: 18.75rem;
+    flex-shrink: 0;
+  }
 }
