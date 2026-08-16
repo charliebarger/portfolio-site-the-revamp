@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { expect, within } from "storybook/test";
 import Pill from "./Pill";
 
 const meta = {
@@ -18,10 +19,20 @@ export const Default: Story = {
   args: {
     text: "Hello World",
   },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    expect(canvas.getByText(args.text)).toBeInTheDocument();
+  },
 };
 
 export const LongText: Story = {
   args: {
     text: "User experience design",
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    expect(canvas.getByText(args.text)).toBeInTheDocument();
   },
 };

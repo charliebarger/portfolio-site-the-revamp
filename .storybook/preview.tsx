@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/nextjs-vite";
 import { useEffect } from "react";
+import { fontVariableClasses } from "../src/app/fonts";
 import "../src/app/globals.css";
 import "../src/app/design-system.css";
 
@@ -28,6 +29,7 @@ const preview: Preview = {
         const previousColorScheme = root.style.colorScheme;
         const previousBackground = document.body.style.backgroundColor;
 
+        root.classList.add(...fontVariableClasses);
         root.dataset.theme = theme;
         root.style.colorScheme = theme;
         document.body.style.backgroundColor = "var(--color-surface-page)";
@@ -38,6 +40,7 @@ const preview: Preview = {
 
           root.style.colorScheme = previousColorScheme;
           document.body.style.backgroundColor = previousBackground;
+          root.classList.remove(...fontVariableClasses);
         };
       }, [theme]);
 

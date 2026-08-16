@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { expect, fn, userEvent, within } from "storybook/test";
 import Button from "./button";
 
 const meta = {
@@ -13,6 +14,7 @@ const meta = {
     type: "button",
     text: "Button",
     shape: "default",
+    onClick: fn(),
   },
   argTypes: {
     kind: {
@@ -42,12 +44,30 @@ export const Default: Story = {
   args: {
     variant: "default",
   },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole("button", { name: "Button" });
+
+    await userEvent.click(button);
+
+    expect(args.onClick).toHaveBeenCalledOnce();
+  },
 };
 
 export const Disabled: Story = {
   args: {
     variant: "default",
     disabled: true,
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole("button", { name: "Button" });
+
+    expect(button).toBeDisabled();
+
+    await userEvent.click(button);
+
+    expect(args.onClick).not.toHaveBeenCalled();
   },
 };
 
@@ -78,5 +98,11 @@ export const Link: Story = {
     shape: "pill",
     text: "View projects",
     type: undefined,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const link = canvas.getByRole("link", { name: "View projects" });
+
+    expect(link).toHaveAttribute("href", "/projects");
   },
 };

@@ -1,0 +1,20 @@
+.header {
+  padding: var(--scale-700);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  color: var(--color-text-headings);
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+}
+
+.title {
+  color: var(--color-text-placeholder);
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-paragraph-md);
+  font-weight: var(--font-weight-bold);
+}

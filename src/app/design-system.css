@@ -261,7 +261,7 @@
   --color-text-on-action: var(--color-white);
   --color-text-information: var(--color-primary-600);
   --color-text-action: var(--color-primary-800);
-  --color-text-action-hover: var(--color-primary-900);
+  --color-text-action-hover: var(--color-primary-600);
   --color-text-highlight: var(--color-secondary-700);
   --color-text-light: var(--color-neutral-100);
 
@@ -455,36 +455,42 @@ body {
    ========================= */
 
 .text-heading-1 {
+  color: var(--color-text-headings);
   font-family: var(--font-family-headings);
   font-size: var(--font-size-h1);
   line-height: var(--line-height-h1);
 }
 
 .text-heading-2 {
+  color: var(--color-text-headings);
   font-family: var(--font-family-headings);
   font-size: var(--font-size-h2);
   line-height: var(--line-height-h2);
 }
 
 .text-heading-3 {
+  color: var(--color-text-headings);
   font-family: var(--font-family-headings);
   font-size: var(--font-size-h3);
   line-height: var(--line-height-h3);
 }
 
 .text-heading-4 {
+  color: var(--color-text-headings);
   font-family: var(--font-family-headings);
   font-size: var(--font-size-h4);
   line-height: var(--line-height-h4);
 }
 
 .text-heading-5 {
+  color: var(--color-text-headings);
   font-family: var(--font-family-headings);
   font-size: var(--font-size-h5);
   line-height: var(--line-height-h5);
 }
 
 .text-heading-6 {
+  color: var(--color-text-headings);
   font-family: var(--font-family-headings);
   font-size: var(--font-size-h6);
   line-height: var(--line-height-h6);
