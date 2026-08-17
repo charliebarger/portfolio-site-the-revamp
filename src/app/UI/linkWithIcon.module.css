@@ -1,0 +1,39 @@
+.linkWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--scale-100);
+  color: var(--color-text-action);
+  transition: color var(--duration-interactive) var(--ease-interactive);
+}
+
+.linkWrapper:hover,
+.linkWrapper:focus-visible {
+  color: var(--color-text-action-hover);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-size-base);
+  height: var(--icon-size-base);
+  transition: color var(--duration-interactive) var(--ease-interactive);
+  > svg {
+    fill: currentColor;
+    width: 100%;
+  }
+}
+
+.default {
+  color: var(--color-icon-default);
+}
+
+.action {
+  color: var(--color-icon-action);
+}
+
+.linkWrapper:hover .icon,
+.linkWrapper:focus-visible .icon {
+  color: var(--color-icon-action-hover);
+}

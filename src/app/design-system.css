@@ -255,6 +255,7 @@
   --icon-mood: "Sun";
 
   --color-text-headings: var(--color-cool-neutral-900);
+  --color-text-intro: var(--color-primary-600);
   --color-text-body: var(--color-cool-neutral-800);
   --color-text-placeholder: var(--color-cool-neutral-600);
   --color-text-disabled: var(--color-neutral-600);
@@ -265,12 +266,12 @@
   --color-text-highlight: var(--color-secondary-700);
   --color-text-light: var(--color-neutral-100);
 
-  --icon-size-base: 1.25rem;
+  --icon-size-base: 1.5rem;
   --icon-size-large: 2.5rem;
   --color-icon-default: var(--color-cool-neutral-800);
   --color-icon-on-action: var(--color-white);
   --color-icon-action: var(--color-primary-800);
-  --color-icon-action-hover: var(--color-primary-900);
+  --color-icon-action-hover: var(--color-primary-600);
   --color-icon-disabled: var(--color-neutral-600);
   --color-icon-highlight: var(--color-secondary-600);
   --color-icon-success: var(--color-success-200);
@@ -361,6 +362,7 @@
   --icon-mood: "Moon";
 
   --color-text-headings: var(--color-cool-neutral-50);
+  --color-text-intro: var(--color-primary-400);
   --color-text-body: var(--color-cool-neutral-100);
   --color-text-placeholder: var(--color-cool-neutral-200);
   --color-text-disabled: var(--color-neutral-200);
@@ -371,7 +373,7 @@
   --color-text-highlight: var(--color-secondary-700);
   --color-text-light: var(--color-neutral-800);
 
-  --icon-size-base: 1.25rem;
+  --icon-size-base: 1.5rem;
   --icon-size-large: 2.5rem;
   --color-icon-default: var(--color-cool-neutral-100);
   --color-icon-on-action: var(--color-black);
@@ -501,6 +503,7 @@ body {
    ========================= */
 
 .text-body-xs {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-xsm);
   font-weight: var(--font-weight-regular);
@@ -508,6 +511,7 @@ body {
 }
 
 .text-body-xs-semibold {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-xsm);
   font-weight: var(--font-weight-semibold);
@@ -515,6 +519,7 @@ body {
 }
 
 .text-link-xs {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-xsm);
   font-weight: var(--font-weight-regular);
@@ -527,6 +532,7 @@ body {
    ========================= */
 
 .text-body-sm {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-sm);
   font-weight: var(--font-weight-regular);
@@ -534,6 +540,7 @@ body {
 }
 
 .text-body-sm-semibold {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-sm);
   font-weight: var(--font-weight-semibold);
@@ -541,6 +548,7 @@ body {
 }
 
 .text-link-sm {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-sm);
   font-weight: var(--font-weight-regular);
@@ -553,6 +561,7 @@ body {
    ========================= */
 
 .text-body-md {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-md);
   font-weight: var(--font-weight-regular);
@@ -560,6 +569,7 @@ body {
 }
 
 .text-body-md-semibold {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-md);
   font-weight: var(--font-weight-semibold);
@@ -567,6 +577,7 @@ body {
 }
 
 .text-link-md {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-md);
   font-weight: var(--font-weight-regular);
@@ -579,6 +590,7 @@ body {
    ========================= */
 
 .text-body-lg {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-lg);
   font-weight: var(--font-weight-regular);
@@ -586,6 +598,7 @@ body {
 }
 
 .text-body-lg-semibold {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-lg);
   font-weight: var(--font-weight-semibold);
@@ -593,6 +606,7 @@ body {
 }
 
 .text-body-lg-bold {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-lg);
   font-weight: var(--font-weight-bold);
@@ -600,6 +614,7 @@ body {
 }
 
 .text-link-lg {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-lg);
   font-weight: var(--font-weight-regular);
@@ -612,6 +627,7 @@ body {
    ========================= */
 
 .text-body-xl {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-xl);
   font-weight: var(--font-weight-regular);
@@ -619,6 +635,7 @@ body {
 }
 
 .text-body-xl-semibold {
+  color: var(--color-text-body);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-xl);
   font-weight: var(--font-weight-semibold);

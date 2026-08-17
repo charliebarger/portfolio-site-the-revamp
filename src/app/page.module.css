@@ -1,101 +1,106 @@
 .intro {
+  background: linear-gradient(
+    121deg,
+    var(--color-surface-card) 13.56%,
+    var(--color-surface-page-fancy) 86.44%
+  );
+  min-height: 100vh;
+  padding: var(--scale-700);
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+  justify-content: space-between;
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
+.centerWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+  gap: var(--scale-300);
+  width: min(600px, calc(100% - 2 * var(--scale-700)));
+  text-align: center;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.helloText {
+  color: var(--color-text-intro);
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  opacity: 0;
+  animation: introUp 700ms var(--ease-interactive) 150ms forwards;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.descriptionWindow {
+  height: calc(var(--scale-900) * 3.6);
+  width: 100%;
+  overflow: hidden;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+.descriptionTrack {
+  display: grid;
+  grid-template-rows: 100%;
+  height: 100%;
+}
+
+.descriptionTrackMoving {
+  grid-template-rows: repeat(2, 50%);
+  height: 200%;
+  animation: moveDescriptionTrack 650ms var(--ease-interactive) both;
+}
+
+.descriptionTrackInitial {
+  animation: firstDescriptionTrackEntrance 650ms var(--ease-interactive) 1.5s
+    both;
+}
+
+.description {
+  place-self: start center;
+  color: var(--color-text-headings);
+  font-family: Roboto;
+  font-size: var(--scale-900);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  will-change: transform;
+}
+
+@keyframes introUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
+@keyframes firstDescriptionTrackEntrance {
+  from {
+    transform: translateY(100%);
   }
 
-  .intro {
-    gap: 16px;
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveDescriptionTrack {
+  from {
+    transform: translateY(0);
   }
 
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
+  to {
+    transform: translateY(-50%);
   }
 }
 
 @media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
   .page {
     --background: #000;
     --foreground: #000;
@@ -109,10 +114,35 @@ a.secondary {
   }
 }
 
+@media (max-width: 600px) {
+  .descriptionWindow {
+    height: calc(var(--scale-900) * 6);
+  }
+}
+
 .code {
   font-family: var(--font-geist-mono);
   font-size: 0.9em;
   background: color-mix(in srgb, currentColor 8%, transparent);
   padding: 0.1em 0.4em;
   border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .helloText,
+  .description {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+
+  .descriptionTrackMoving {
+    animation: none;
+    transform: translateY(-50%);
+  }
+
+  .descriptionTrackInitial {
+    animation: none;
+    transform: none;
+  }
 }

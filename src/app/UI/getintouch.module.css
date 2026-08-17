@@ -1,0 +1,19 @@
+.wrapper {
+  padding: var(--scale-600);
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-300);
+  align-items: start;
+  width: fit-content;
+}
+
+.linkWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--scale-300);
+}
+
+.header {
+  color: var(--color-text-placeholder);
+  text-transform: uppercase;
+}
