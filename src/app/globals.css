@@ -39,3 +39,8 @@ a {
     transition: none;
   }
 }
+
+.page {
+  padding: var(--scale-1100);
+  backg
+}

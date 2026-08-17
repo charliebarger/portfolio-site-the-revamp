@@ -7,9 +7,37 @@
   min-height: 100vh;
   padding: var(--scale-700);
   position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.avatar {
+  position: absolute;
+  right: var(--scale-700);
+  bottom: 0;
+  transform: translateY(20%);
+  width: clamp(9rem, 14vw, 13rem);
+  aspect-ratio: 400 / 450;
+  cursor: pointer;
+}
+
+.avatarSprite {
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/avatar/wave-sprite-sheet-clean.png");
+  background-repeat: no-repeat;
+  background-size: 1000% 100%;
+  background-position: 0 0;
+}
+
+.avatarSpriteLoading {
+  animation: waveOnLoad 900ms steps(9, end);
+}
+
+.avatar:hover .avatarSprite {
+  animation: waveOnHover 900ms steps(9, end);
 }
 
 .centerWrapper {
@@ -100,23 +128,54 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .page {
-    --background: #000;
-    --foreground: #000;
+@keyframes waveOnLoad {
+  from {
+    background-position: 0 0;
+  }
 
-    --text-primary: #ededed;
-    --text-secondary: #999;
+  to {
+    background-position: 100% 0;
+  }
+}
 
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
+@keyframes waveOnHover {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 100% 0;
   }
 }
 
 @media (max-width: 600px) {
+  .intro {
+    min-height: 100svh;
+    padding: var(--scale-400);
+  }
+
+  .centerWrapper {
+    top: 43%;
+    width: calc(100% - 2 * var(--scale-400));
+  }
+
+  .helloText {
+    font-size: var(--font-size-h6);
+    line-height: var(--line-height-h6);
+  }
+
+  .description {
+    max-width: 100%;
+    font-size: clamp(1.35rem, 6vw, 2rem);
+  }
+
+  .avatar {
+    right: var(--scale-400);
+    width: clamp(6rem, 30vw, 9rem);
+  }
+
   .descriptionWindow {
-    height: calc(var(--scale-900) * 6);
+    height: 9rem;
   }
 }
 
@@ -144,5 +203,10 @@
   .descriptionTrackInitial {
     animation: none;
     transform: none;
+  }
+
+  .avatarSpriteLoading,
+  .avatar:hover .avatarSprite {
+    animation: none;
   }
 }

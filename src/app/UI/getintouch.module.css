@@ -17,3 +17,15 @@
   color: var(--color-text-placeholder);
   text-transform: uppercase;
 }
+
+@media (max-width: 600px) {
+  .wrapper {
+    width: calc(100% - 7rem);
+    max-width: 18rem;
+    padding: 0;
+  }
+
+  .linkWrapper {
+    flex-wrap: wrap;
+  }
+}

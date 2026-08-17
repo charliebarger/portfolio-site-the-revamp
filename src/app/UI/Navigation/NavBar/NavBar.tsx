@@ -1,19 +1,17 @@
 "use client";
 
-import Link from "next/link";
 import styles from "./navBar.module.css";
 import { usePathname } from "next/navigation";
-import type { Route } from "next";
 import Moon from "@/assets/moon.svg?react";
 import Sun from "@/assets/sun.svg?react";
 import { useThemeStore, type Theme } from "@/stores/themeStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const isTheme = (value: string | undefined): value is Theme =>
   value === "light" || value === "dark";
 
 interface NavBarItems {
-  href: Route<string>;
+  href: string;
   label: string;
 }
 
@@ -26,6 +24,7 @@ const links: NavBarItems[] = [
 
 const NavBar = () => {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const theme = useThemeStore((state) => state.theme);
   const initializeTheme = useThemeStore((state) => state.initializeTheme);
   const toggleTheme = useThemeStore((state) => state.toggleTheme);
@@ -56,38 +55,85 @@ const NavBar = () => {
     return () => observer.disconnect();
   }, [initializeTheme]);
 
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [isMenuOpen]);
+
   return (
-    <section className={styles.linkWrapper}>
-      {links.map((link) => (
-        <Link
-          key={link.href}
-          href={link.href}
-          className={`${styles.linkItem} text-body-lg`}
-          data-active={pathname === link.href ? "true" : "false"}
-        >
-          {link.label}
-        </Link>
-      ))}
+    <div className={styles.navWrapper}>
       <button
-        className={styles.themeToggle}
+        className={styles.menuToggle}
         type="button"
-        onClick={toggleTheme}
-        aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-        aria-pressed={theme === "dark"}
-        title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+        aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+        aria-expanded={isMenuOpen}
+        aria-controls="primary-navigation"
+        onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
       >
-        <Sun
-          className={`${styles.themeIcon} ${styles.sunIcon}`}
-          aria-hidden="true"
-          focusable="false"
-        />
-        <Moon
-          className={`${styles.themeIcon} ${styles.moonIcon}`}
-          aria-hidden="true"
-          focusable="false"
-        />
+        <span className={styles.menuToggleLine} />
+        <span className={styles.menuToggleLine} />
+        <span className={styles.menuToggleLine} />
       </button>
-    </section>
+
+      <button
+        className={styles.backdrop}
+        data-open={isMenuOpen}
+        type="button"
+        tabIndex={-1}
+        aria-hidden="true"
+        onClick={() => setIsMenuOpen(false)}
+      />
+
+      <nav
+        id="primary-navigation"
+        className={styles.linkWrapper}
+        data-open={isMenuOpen}
+        aria-label="Primary navigation"
+      >
+        {links.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className={`${styles.linkItem} text-body-lg`}
+            data-active={pathname === link.href ? "true" : "false"}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {link.label}
+          </a>
+        ))}
+        <button
+          className={styles.themeToggle}
+          type="button"
+          onClick={toggleTheme}
+          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          aria-pressed={theme === "dark"}
+          title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+        >
+          <Sun
+            className={`${styles.themeIcon} ${styles.sunIcon}`}
+            aria-hidden="true"
+            focusable="false"
+          />
+          <Moon
+            className={`${styles.themeIcon} ${styles.moonIcon}`}
+            aria-hidden="true"
+            focusable="false"
+          />
+        </button>
+      </nav>
+    </div>
   );
 };
 

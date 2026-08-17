@@ -1,0 +1,59 @@
+{
+  "task": "Implement the clean waving character sprite animation in a React app using CSS Modules.",
+  "asset": {
+    "filename": "wave-sprite-sheet-clean.png",
+    "layout": "horizontal",
+    "frameCount": 10,
+    "frameWidthPx": 400,
+    "frameHeightPx": 450,
+    "sheetWidthPx": 4000,
+    "sheetHeightPx": 450,
+    "transparentBackground": true,
+    "note": "This version uses only the 10 original normalized frames. No AI/optical-flow interpolation is used, so there are no phantom or ghost arms."
+  },
+  "implementation": {
+    "framework": "React",
+    "styling": "CSS Modules",
+    "behavior": "Play the wave once on hover.",
+    "requirements": [
+      "Use the sprite sheet as a CSS background image.",
+      "The visible element is exactly one frame: 400px wide by 450px tall.",
+      "Set background-repeat to no-repeat.",
+      "Set background-size to 4000px 450px.",
+      "Use discrete sprite steps, not smooth CSS interpolation.",
+      "There are 10 frames.",
+      "Animate background-position-x from 0px to -3600px.",
+      "Use steps(9, end).",
+      "Start around 0.8 to 1.0 seconds for the full animation and tune by eye.",
+      "Do not loop continuously.",
+      "Do not use opacity fades or crossfades between frames.",
+      "Do not add motion blur, frame blending, or ghosting.",
+      "Respect prefers-reduced-motion."
+    ]
+  },
+  "suggestedCss": {
+    ".waveCharacter": [
+      "width: 400px;",
+      "height: 450px;",
+      "background-image: url('/images/wave-sprite-sheet-clean.png');",
+      "background-repeat: no-repeat;",
+      "background-size: 4000px 450px;",
+      "background-position: 0 0;"
+    ],
+    ".waveCharacter:hover": ["animation: wave 0.9s steps(9, end);"],
+    "@keyframes wave": {
+      "from": "background-position: 0 0;",
+      "to": "background-position: -3600px 0;"
+    },
+    "@media (prefers-reduced-motion: reduce)": [
+      ".waveCharacter:hover { animation: none; }"
+    ]
+  },
+  "acceptanceCriteria": [
+    "Only one arm is visible in every frame.",
+    "There is no phantom arm or motion-trail effect.",
+    "The character remains aligned in place while waving.",
+    "The animation plays through the 10 clean frames in order.",
+    "The sprite snaps between discrete frames rather than crossfading."
+  ]
+}

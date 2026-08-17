@@ -1,4 +1,6 @@
 .header {
+  position: relative;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,4 +18,16 @@
   font-family: var(--font-family-headings);
   font-size: var(--font-size-paragraph-md);
   font-weight: var(--font-weight-bold);
+}
+
+@media (max-width: 48rem) {
+  .name {
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+  }
+
+  .title {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
 }

@@ -2,6 +2,7 @@ import styles from "./page.module.css";
 import IntroCopy from "./IntroCopy";
 import Header from "./UI/Navigation/Header/Header";
 import GetInTouch from "./UI/GetInTouch";
+import Avatar from "./Avatar";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
           <Header />
           <IntroCopy />
           <GetInTouch />
+          <Avatar />
         </section>
       </main>
     </div>
