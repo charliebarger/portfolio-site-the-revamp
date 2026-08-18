@@ -17,9 +17,9 @@ interface NavBarItems {
 
 const links: NavBarItems[] = [
   { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#work", label: "Work" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 const NavBar = () => {

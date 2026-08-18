@@ -1,0 +1,51 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--scale-400);
+  min-height: 10.25rem;
+  padding: var(--scale-400) var(--scale-600);
+  border-radius: var(--border-radius-sm);
+  background: var(--color-surface-page);
+  box-shadow: var(--shadow-base);
+}
+
+.icon {
+  width: 3.125rem;
+  height: 3.125rem;
+  flex: 0 0 auto;
+}
+
+.copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--scale-100);
+}
+
+.title {
+  color: var(--color-text-headings);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.75rem;
+}
+
+.description {
+  max-width: 35ch;
+  color: var(--color-text-body);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-md);
+  line-height: var(--line-height-paragraph-md);
+}
+
+@media (max-width: 30rem) {
+  .card {
+    align-items: flex-start;
+    padding: var(--scale-400);
+  }
+
+  .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}

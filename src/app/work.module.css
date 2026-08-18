@@ -1,0 +1,201 @@
+.work {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--scale-1000);
+  width: 100%;
+  padding: var(--scale-800) var(--scale-400);
+  background: var(--color-surface-page);
+  scroll-margin-top: 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--scale-400);
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  color: var(--color-text-headings);
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-h2);
+}
+
+.timeline {
+  --timeline-color: var(--color-icon-action);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: var(--scale-300) var(--scale-400);
+  border-radius: var(--border-radius-full);
+  border: 0;
+  color: var(--color-text-body);
+  background: var(--color-surface-card-pure);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-paragraph-lg);
+  cursor: pointer;
+  box-shadow: var(--shadow-base);
+  transition:
+    transform var(--duration-interactive) var(--ease-interactive),
+    box-shadow var(--duration-interactive) var(--ease-interactive);
+}
+
+.timeline[data-color="1"] {
+  --timeline-color: var(--color-secondary-600);
+}
+
+.timeline[data-color="2"] {
+  --timeline-color: var(--color-vivid-500);
+}
+
+.timeline[data-color="3"] {
+  --timeline-color: var(--color-success-600);
+}
+
+.timeline:focus-visible {
+  outline: var(--border-width-md) solid var(--color-border-action);
+  outline-offset: var(--scale-100);
+}
+
+.timeline:hover,
+.timeline:focus-visible {
+  transform: translateY(var(--scale-25));
+  box-shadow: 0 var(--scale-50) var(--scale-100)
+    color-mix(in srgb, var(--color-neutral-black) 8%, transparent);
+}
+
+.timeline:active {
+  transform: translateY(var(--scale-50));
+  box-shadow: none;
+}
+
+.timelineGraphic {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 4.847625rem;
+  height: 1.350875rem;
+  color: var(--timeline-color);
+}
+
+.timelineStart,
+.timelineEnd {
+  position: relative;
+  z-index: 1;
+}
+
+.timelineGraphic path {
+  color: var(--color-text-placeholder);
+  clip-path: inset(0 100% 0 0);
+}
+
+.timeline[data-animate="true"] .timelineGraphic path {
+  animation: fillTimeline 1.2s var(--ease-interactive) 650ms both;
+}
+
+.timeline[data-animate="true"] .timelineStart {
+  animation: timelineShake 500ms ease-in-out 100ms both;
+}
+
+.timeline[data-animate="true"] .timelineEnd {
+  animation: timelineShake 500ms ease-in-out 1.9s both;
+}
+
+@keyframes fillTimeline {
+  from {
+    color: var(--color-text-placeholder);
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    color: var(--timeline-color);
+    clip-path: inset(0);
+  }
+}
+
+.confetti {
+  position: absolute;
+  z-index: 0;
+  inset: 50% auto auto 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.confetti > span {
+  position: absolute;
+  color: var(--particle-color);
+  font-size: var(--particle-size);
+  line-height: 1;
+  animation: confettiPop 700ms ease-out var(--particle-delay) both;
+}
+
+@keyframes confettiPop {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(var(--particle-x), var(--particle-y)) scale(1)
+      rotate(var(--particle-r));
+  }
+}
+
+@keyframes timelineShake {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  25% {
+    transform: rotate(-5deg) scale(1.06);
+  }
+
+  50% {
+    transform: rotate(5deg) scale(1.08);
+  }
+
+  75% {
+    transform: rotate(-3deg) scale(1.04);
+  }
+}
+
+@media (min-width: 48rem) {
+  .work {
+    padding: var(--scale-1100);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline {
+    transition: none;
+  }
+
+  .timelineGraphic path,
+  .timelineStart,
+  .timelineEnd {
+    animation: none;
+  }
+
+  .timelineGraphic path {
+    color: var(--timeline-color);
+    clip-path: inset(0);
+  }
+
+  .confetti > span {
+    animation: none;
+    opacity: 0;
+  }
+}

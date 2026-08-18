@@ -16,13 +16,14 @@
 .image {
   display: block;
   width: 100%;
+  max-width: 18.75rem;
   height: auto;
   border-radius: var(--border-radius-md);
 }
 
 .pillsContainer {
   display: flex;
-  gap: var(--scale-200);
+  gap: var(--scale-300) var(--scale-200);
   flex-wrap: wrap;
 }
 
@@ -73,5 +74,6 @@
   .image {
     width: 18.75rem;
     flex-shrink: 0;
+    align-self: flex-start;
   }
 }

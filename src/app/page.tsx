@@ -3,6 +3,9 @@ import IntroCopy from "./IntroCopy";
 import Header from "./UI/Navigation/Header/Header";
 import GetInTouch from "./UI/GetInTouch";
 import Avatar from "./Avatar";
+import Work from "./Work";
+import About from "./About";
+import Contact from "./Contact";
 
 export default function Home() {
   return (
@@ -14,6 +17,9 @@ export default function Home() {
           <GetInTouch />
           <Avatar />
         </section>
+        <Work />
+        <About />
+        <Contact />
       </main>
     </div>
   );

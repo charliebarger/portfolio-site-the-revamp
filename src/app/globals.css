@@ -1,6 +1,7 @@
 html {
   height: 100%;
   background: var(--color-surface-page);
+  scroll-behavior: smooth;
 }
 
 html,
@@ -35,6 +36,10 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   body {
     transition: none;
   }
@@ -42,5 +47,4 @@ a {
 
 .page {
   padding: var(--scale-1100);
-  backg
 }

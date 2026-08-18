@@ -7,7 +7,7 @@ interface PillProps {
 const Pill = ({ text }: PillProps) => {
   return (
     <div className={styles.pill}>
-      <span className={`text-body-sm `}>Hello World</span>
+      <span className={styles.text}>{text}</span>
     </div>
   );
 };

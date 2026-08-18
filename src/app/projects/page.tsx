@@ -1,3 +1,5 @@
-export default function Speacs() {
-  return <div>speacs</div>;
+import { redirect } from "next/navigation";
+
+export default function ProjectsRedirect() {
+  redirect("/#work");
 }

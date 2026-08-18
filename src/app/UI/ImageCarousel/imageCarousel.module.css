@@ -1,0 +1,98 @@
+.viewport {
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+}
+
+.viewport:active {
+  cursor: grabbing;
+}
+
+.viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.viewport:focus-visible {
+  outline: var(--border-width-md) solid var(--color-border-action);
+  outline-offset: var(--scale-100);
+  border-radius: var(--border-radius-md);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  gap: var(--scale-600);
+}
+
+.slide {
+  position: relative;
+  width: min(16.25rem, calc(100vw - 4rem));
+  height: 14.375rem;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: var(--scale-300);
+}
+
+.slide:focus-visible {
+  outline: var(--border-width-md) solid var(--color-border-action);
+  outline-offset: calc(var(--border-width-md) * -1);
+}
+
+.slideLink {
+  position: absolute;
+  inset: 0;
+  color: inherit;
+}
+
+.slideLink:focus-visible {
+  outline: var(--border-width-md) solid var(--color-border-action);
+  outline-offset: calc(var(--border-width-md) * -1);
+}
+
+.image {
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: var(--scale-300) var(--scale-400);
+  color: var(--color-white);
+  background: color-mix(in srgb, var(--color-cool-neutral-900) 82%, transparent);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-sm);
+  line-height: var(--line-height-paragraph-sm);
+  opacity: 0;
+  transform: translateY(100%);
+  transition:
+    opacity var(--duration-interactive) var(--ease-interactive),
+    transform var(--duration-interactive) var(--ease-interactive);
+  pointer-events: none;
+}
+
+.slide:hover .caption,
+.slide:focus-visible .caption,
+.slide:focus-within .caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caption {
+    transition: none;
+  }
+}

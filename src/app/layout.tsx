@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { fontVariableClasses } from "./fonts";
 import "./globals.css";
 import "./design-system.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",

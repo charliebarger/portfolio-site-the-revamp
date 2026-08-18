@@ -11,8 +11,7 @@ export interface PreviewCardProps<T extends string = string> {
   img: {
     src: string;
     alt: string;
-    width: number;
-    height: number;
+    preload?: boolean;
   };
   text: {
     title: string;
@@ -34,9 +33,11 @@ const PreviewCard = <T extends string>({
       <Image
         src={img.src}
         alt={img.alt}
-        width={img.width}
-        height={img.height}
+        width={300}
+        height={250}
+        preload={img.preload}
         className={styles.image}
+        style={{ height: "auto" }}
       />
       <section className={styles.textContainer}>
         <div className={styles.textWrapper}>

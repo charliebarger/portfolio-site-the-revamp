@@ -1,9 +1,16 @@
 .pill {
   display: inline-block;
   width: fit-content;
-  padding: var(--scale-200) var(--scale-400);
+  padding: var(--scale-200) var(--scale-300);
   border-radius: var(--border-radius-full);
   background: var(--color-surface-highlight);
   border: 1px solid var(--color-border-highlight);
+}
+
+.text {
   color: var(--color-text-highlight);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-paragraph-sm);
 }
