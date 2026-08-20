@@ -17,6 +17,7 @@ export const Default: Story = {
     const canvas = within(canvasElement);
 
     expect(canvas.getByText("Charlie Barger")).toBeInTheDocument();
+    expect(canvas.getByText("UI Engineer")).toBeInTheDocument();
     expect(
       canvas.getByRole("navigation", { name: "Footer navigation" }),
     ).toBeInTheDocument();

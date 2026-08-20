@@ -32,6 +32,5 @@ export const Default: Story = {
       "href",
       "/charlie_barger_resume.pdf",
     );
-    expect(canvas.getByRole("link", { name: "Denver, Co" })).toBeInTheDocument();
   },
 };

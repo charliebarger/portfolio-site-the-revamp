@@ -3,7 +3,6 @@ import styles from "./getintouch.module.css";
 import Mail from "@/assets/mail.svg?react";
 import LinkedIn from "@/assets/linkedin.svg?react";
 import Github from "@/assets/github.svg?react";
-import Location from "@/assets/location.svg?react";
 import Resume from "@/assets/resume.svg?react";
 import ContactLink from "./Link";
 
@@ -35,12 +34,6 @@ const GetInTouch = () => {
           text="Resume"
         />
       </div>
-      <ContactLink
-        href="mailto:charliebarger96@gmail.com"
-        icon={<Location />}
-        iconColor="action"
-        text="Denver, Co"
-      />
     </section>
   );
 };

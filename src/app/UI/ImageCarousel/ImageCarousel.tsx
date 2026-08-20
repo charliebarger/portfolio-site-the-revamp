@@ -82,7 +82,9 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
     isDraggingRef.current = true;
     dragDistanceRef.current = 0;
     lastPointerXRef.current = event.clientX;
-    event.currentTarget.setPointerCapture(event.pointerId);
+    if (event.pointerType !== "touch") {
+      event.currentTarget.setPointerCapture(event.pointerId);
+    }
   };
 
   const drag = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -90,6 +92,7 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
     const movement = event.clientX - lastPointerXRef.current;
     lastPointerXRef.current = event.clientX;
     dragDistanceRef.current += Math.abs(movement);
+    if (event.pointerType === "touch") return;
     event.currentTarget.scrollLeft -= movement;
   };
 
@@ -133,7 +136,9 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
                 draggable={false}
                 style={{ objectPosition: image.position }}
               />
-              <figcaption className={styles.caption}>{image.caption}</figcaption>
+              <figcaption className={styles.caption}>
+                {image.caption}
+              </figcaption>
             </>
           );
 
