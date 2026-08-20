@@ -10,7 +10,7 @@ const Footer = () => (
     <nav className={styles.links} aria-label="Footer navigation">
       {/* The project currently has incompatible React/Next Link types. */}
       {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-      <a href="/">Home</a>
+      <a href="/#top">Home</a>
       {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
       <a href="/#work">Work</a>
       {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}

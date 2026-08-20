@@ -9,7 +9,7 @@ import Contact from "./Contact";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <div id="top" className={styles.page}>
       <main className={styles.main}>
         <section className={styles.intro}>
           <Header />

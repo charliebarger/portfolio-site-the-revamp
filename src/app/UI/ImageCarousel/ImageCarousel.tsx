@@ -20,6 +20,7 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
   const viewportRef = useRef<HTMLDivElement>(null);
   const isDraggingRef = useRef(false);
   const dragDistanceRef = useRef(0);
+  const lastPointerXRef = useRef(0);
 
   useEffect(() => {
     const viewport = viewportRef.current;
@@ -77,21 +78,19 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
     if (viewport.scrollLeft >= loopWidth * 2) viewport.scrollLeft -= loopWidth;
   };
 
-  const startDragging = () => {
+  const startDragging = (event: React.PointerEvent<HTMLDivElement>) => {
     isDraggingRef.current = true;
     dragDistanceRef.current = 0;
+    lastPointerXRef.current = event.clientX;
+    event.currentTarget.setPointerCapture(event.pointerId);
   };
 
   const drag = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!isDraggingRef.current) return;
-    dragDistanceRef.current += Math.abs(event.movementX);
-    if (
-      dragDistanceRef.current > 5 &&
-      !event.currentTarget.hasPointerCapture(event.pointerId)
-    ) {
-      event.currentTarget.setPointerCapture(event.pointerId);
-    }
-    event.currentTarget.scrollLeft -= event.movementX;
+    const movement = event.clientX - lastPointerXRef.current;
+    lastPointerXRef.current = event.clientX;
+    dragDistanceRef.current += Math.abs(movement);
+    event.currentTarget.scrollLeft -= movement;
   };
 
   const stopDragging = (event: React.PointerEvent<HTMLDivElement>) => {

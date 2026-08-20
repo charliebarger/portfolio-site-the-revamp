@@ -18,8 +18,15 @@
   height: auto;
   opacity: 0;
   user-select: none;
+  pointer-events: auto;
+  touch-action: none;
+  cursor: grab;
   animation: maggiePop var(--sticker-duration) var(--ease-interactive)
     var(--sticker-delay) both;
+}
+
+.sticker:active {
+  cursor: grabbing;
 }
 
 @keyframes maggiePop {

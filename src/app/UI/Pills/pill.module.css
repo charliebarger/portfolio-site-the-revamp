@@ -1,6 +1,8 @@
 .pill {
-  display: inline-block;
+  display: inline-flex;
   width: fit-content;
+  align-items: center;
+  justify-content: center;
   padding: var(--scale-200) var(--scale-300);
   border-radius: var(--border-radius-full);
   background: var(--color-surface-highlight);
@@ -8,6 +10,7 @@
 }
 
 .text {
+  display: block;
   color: var(--color-text-highlight);
   font-family: var(--font-family-text);
   font-size: var(--font-size-paragraph-sm);

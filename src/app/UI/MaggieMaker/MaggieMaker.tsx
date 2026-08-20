@@ -1,7 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type PointerEvent as ReactPointerEvent,
+} from "react";
 import Button from "@/app/UI/Button/Button";
 import PawPrint from "@/assets/PawPrint.svg?react";
 import styles from "./maggieMaker.module.css";
@@ -17,9 +23,20 @@ interface Sticker {
   style: CSSProperties & Record<`--${string}`, string>;
 }
 
+interface StickerDrag {
+  id: string;
+  startPointerX: number;
+  startPointerY: number;
+  startLeft: number;
+  startTop: number;
+  left: number;
+  top: number;
+}
+
 const MaggieMaker = () => {
   const batchRef = useRef(0);
   const removalTimersRef = useRef<number[]>([]);
+  const stickerDragRef = useRef<StickerDrag | null>(null);
   const [stickers, setStickers] = useState<Sticker[]>([]);
 
   useEffect(
@@ -70,6 +87,74 @@ const MaggieMaker = () => {
     );
   };
 
+  const startDraggingSticker = (
+    event: ReactPointerEvent<HTMLImageElement>,
+    id: string,
+  ) => {
+    const computedStyle = window.getComputedStyle(event.currentTarget);
+    const left = Number.parseFloat(computedStyle.left);
+    const top = Number.parseFloat(computedStyle.top);
+    stickerDragRef.current = {
+      id,
+      startPointerX: event.clientX,
+      startPointerY: event.clientY,
+      startLeft: left,
+      startTop: top,
+      left,
+      top,
+    };
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const dragSticker = (event: ReactPointerEvent<HTMLImageElement>) => {
+    const dragState = stickerDragRef.current;
+    if (!dragState) return;
+
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const left = Math.min(
+      Math.max(
+        0,
+        dragState.startLeft + event.clientX - dragState.startPointerX,
+      ),
+      Math.max(0, window.innerWidth - bounds.width),
+    );
+    const top = Math.min(
+      Math.max(
+        0,
+        dragState.startTop + event.clientY - dragState.startPointerY,
+      ),
+      Math.max(0, window.innerHeight - bounds.height),
+    );
+    dragState.left = left;
+    dragState.top = top;
+    event.currentTarget.style.setProperty("--sticker-left", `${left}px`);
+    event.currentTarget.style.setProperty("--sticker-top", `${top}px`);
+  };
+
+  const stopDraggingSticker = (event: ReactPointerEvent<HTMLImageElement>) => {
+    const dragState = stickerDragRef.current;
+    if (!dragState) return;
+
+    setStickers((current) =>
+      current.map((sticker) =>
+        sticker.id === dragState.id
+          ? {
+              ...sticker,
+              style: {
+                ...sticker.style,
+                "--sticker-left": `${dragState.left}px`,
+                "--sticker-top": `${dragState.top}px`,
+              },
+            }
+          : sticker,
+      ),
+    );
+    stickerDragRef.current = null;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+  };
+
   return (
     <>
       <div className={styles.buttonWrapper}>
@@ -92,6 +177,10 @@ const MaggieMaker = () => {
             height={1448}
             draggable={false}
             style={sticker.style}
+            onPointerDown={(event) => startDraggingSticker(event, sticker.id)}
+            onPointerMove={dragSticker}
+            onPointerUp={stopDraggingSticker}
+            onPointerCancel={stopDraggingSticker}
           />
         ))}
       </div>

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { expect, within } from "storybook/test";
+import { expect, fireEvent, within } from "storybook/test";
 import ImageCarousel from "./ImageCarousel";
 
 const meta = {
@@ -47,5 +47,13 @@ export const Default: Story = {
     const primaryLink = carousel.querySelector('a[tabindex="0"]');
     expect(primaryLink).toHaveAttribute("href", "https://example.com/surfing");
     expect(primaryLink).toHaveAttribute("rel", "noreferrer");
+
+    const startingScrollPosition = carousel.scrollLeft;
+    fireEvent.pointerDown(carousel, { pointerId: 1, clientX: 200 });
+    fireEvent.pointerMove(carousel, { pointerId: 1, clientX: 150 });
+    fireEvent.pointerUp(carousel, { pointerId: 1, clientX: 150 });
+    expect(carousel.scrollLeft).toBeGreaterThanOrEqual(
+      startingScrollPosition + 50,
+    );
   },
 };

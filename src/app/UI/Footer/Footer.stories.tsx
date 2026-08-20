@@ -22,7 +22,7 @@ export const Default: Story = {
     ).toBeInTheDocument();
     expect(canvas.getByRole("link", { name: "Home" })).toHaveAttribute(
       "href",
-      "/",
+      "/#top",
     );
     expect(canvas.getByRole("link", { name: "Work" })).toHaveAttribute(
       "href",
