@@ -9,7 +9,7 @@ const projects = [
   {
     side: "left",
     img: {
-      src: "/projects/speacs/preview2.png",
+      src: "/projects/speacs/preview4.png",
       alt: "Speacs patient communication support guide shown on a laptop",
       preload: true,
     },
