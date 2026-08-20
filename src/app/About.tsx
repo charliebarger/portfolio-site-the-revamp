@@ -3,6 +3,7 @@ import SkillCard, { type SkillCardProps } from "./UI/Cards/SkillCard/SkillCard";
 import ImageCarousel, {
   type CarouselImage,
 } from "./UI/ImageCarousel/ImageCarousel";
+import MaggieMaker from "./UI/MaggieMaker/MaggieMaker";
 import styles from "./about/about.module.css";
 
 const skills: SkillCardProps[] = [
@@ -86,14 +87,14 @@ const gallery: CarouselImage[] = [
 const About = () => (
   <section id="about" className={styles.page} aria-labelledby="about-title">
     <div className={styles.main}>
-      <h2 id="about-title" className={styles.pageTitle}>
+      <h2 id="about-title" className="text-section-title">
         Who I Am
       </h2>
       <div className={styles.about}>
         <div className={styles.aboutCopy}>
           <header className={styles.introHeader}>
             <p className={styles.eyebrow}>Hi, I’m Charlie!</p>
-            <h3 className={styles.introTitle}>
+            <h3 className={`text-subsection-title ${styles.introTitle}`}>
               Creating software at the intersection of design and engineering.
             </h3>
           </header>
@@ -131,18 +132,21 @@ const About = () => (
             </p>
           </div>
         </div>
-        <div className={styles.portraitFrame}>
-          <Image
-            className={styles.portrait}
-            src="/about/portrait.png"
-            alt="Charlie sitting outdoors beside a dog"
-            fill
-          />
+        <div className={styles.portraitColumn}>
+          <div className={styles.portraitFrame}>
+            <Image
+              className={styles.portrait}
+              src="/about/portrait.png"
+              alt="Charlie sitting outdoors beside a dog"
+              fill
+            />
+          </div>
+          <MaggieMaker />
         </div>
       </div>
       <section className={styles.section} aria-labelledby="work-style-title">
         <header className={styles.sectionHeader}>
-          <h3 id="work-style-title" className={styles.sectionTitle}>
+          <h3 id="work-style-title" className="text-subsection-title">
             How I Work
           </h3>
           <p>
@@ -158,7 +162,7 @@ const About = () => (
       </section>
       <section className={styles.section} aria-labelledby="things-title">
         <header className={styles.sectionHeader}>
-          <h3 id="things-title" className={styles.sectionTitle}>
+          <h3 id="things-title" className="text-subsection-title">
             Things I Like
           </h3>
           <p>

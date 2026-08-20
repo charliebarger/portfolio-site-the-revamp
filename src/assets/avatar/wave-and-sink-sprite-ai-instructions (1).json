@@ -1,0 +1,104 @@
+{
+  "task": "Integrate two 10-frame character sprite sheets in a React app using CSS Modules: a wave animation and a sink-below-the-screen animation.",
+  "assets": {
+    "wave": {
+      "filename": "wave-sprite-sheet-clean.png",
+      "layout": "horizontal",
+      "frameCount": 10,
+      "frameWidthPx": 400,
+      "frameHeightPx": 450,
+      "sheetWidthPx": 4000,
+      "sheetHeightPx": 450,
+      "backgroundPositionEndPx": -3600
+    },
+    "sink": {
+      "filename": "sink-sprite-sheet-clean-horizontal.png",
+      "layout": "horizontal",
+      "frameCount": 10,
+      "frameWidthPx": 400,
+      "frameHeightPx": 450,
+      "sheetWidthPx": 4000,
+      "sheetHeightPx": 450,
+      "backgroundPositionEndPx": -3600,
+      "note": "This asset has been normalized from the generated 2x5 sheet into the same 10-frame horizontal 400x450 format as the wave sheet."
+    }
+  },
+  "intendedBehavior": {
+    "idle": "Show frame 1 of the wave sheet as the normal resting character.",
+    "wave": "Play the 10-frame wave once when the character first appears, or when the app explicitly triggers the wave.",
+    "hover": "When the user hovers the character, switch to the sink sheet and play frames 1 through 10 so the character appears to sink below the bottom edge of the viewport/container.",
+    "mouseLeave": "Return to the normal idle pose. Do not crossfade between sprite sheets.",
+    "important": "The bottom of the sprite must be clipped by a wrapper with overflow: hidden so the sinking motion reads as going below the screen/container edge."
+  },
+  "recommendedStructure": {
+    "React": [
+      "Use one wrapper element that controls clipping and one sprite element inside it.",
+      "Track animation state with a small React state value such as 'idle', 'wave', or 'sink' only if CSS hover alone is not enough.",
+      "For the hover sink interaction, CSS-only is acceptable: use the sink sprite as the hover animation while the idle state uses the first wave frame."
+    ],
+    "DOMExample": "<div className={styles.characterClip}><div className={styles.character} /></div>"
+  },
+  "cssRequirements": [
+    "The visible sprite frame is 400px wide by 450px tall before any visual scaling.",
+    "Both sprite sheets use background-size: 4000px 450px.",
+    "Both animations move background-position-x from 0px to -3600px.",
+    "Use steps(9, end) because there are 10 frames and 9 transitions from the first frame to the last frame.",
+    "Do not use opacity fades, crossfades, motion blur, or smooth interpolation between sprite frames.",
+    "Use overflow: hidden on the clipping wrapper.",
+    "Anchor the character to bottom center so the sink animation visually disappears below the edge.",
+    "If the character is displayed smaller, scale the sprite consistently rather than changing frame math independently.",
+    "Respect prefers-reduced-motion."
+  ],
+  "suggestedCss": {
+    ".characterClip": [
+      "position: relative;",
+      "width: 400px;",
+      "height: 450px;",
+      "overflow: hidden;"
+    ],
+    ".character": [
+      "width: 400px;",
+      "height: 450px;",
+      "background-image: url('/images/wave-sprite-sheet-clean.png');",
+      "background-repeat: no-repeat;",
+      "background-size: 4000px 450px;",
+      "background-position: 0 0;",
+      "transform-origin: bottom center;"
+    ],
+    ".characterClip:hover .character": [
+      "background-image: url('/images/sink-sprite-sheet-clean-horizontal.png');",
+      "animation: sink 0.75s steps(9, end) forwards;"
+    ],
+    "@keyframes sink": {
+      "from": "background-position: 0 0;",
+      "to": "background-position: -3600px 0;"
+    },
+    ".isWaving": [
+      "background-image: url('/images/wave-sprite-sheet-clean.png');",
+      "animation: wave 0.9s steps(9, end);"
+    ],
+    "@keyframes wave": {
+      "from": "background-position: 0 0;",
+      "to": "background-position: -3600px 0;"
+    },
+    "@media (prefers-reduced-motion: reduce)": [
+      ".characterClip:hover .character, .isWaving { animation: none; }"
+    ]
+  },
+  "interactionNotes": [
+    "Do not run wave and sink animations at the same time.",
+    "If the wave is automatic on page load, let it finish before hover can start the sink animation, or allow hover to interrupt it cleanly.",
+    "The sink animation should use forwards while hovered so the character stays almost fully hidden after sinking.",
+    "When hover ends, remove the sink animation and immediately restore the idle first frame.",
+    "If a smoother reappearance is desired later, create a separate rise animation by playing the sink frames in reverse."
+  ],
+  "acceptanceCriteria": [
+    "The same character occupies the same 400x450 frame size in both assets.",
+    "The idle pose does not jump when switching from the wave sheet to the sink sheet.",
+    "Hover makes the character appear to descend below the bottom edge rather than simply fade out.",
+    "The wrapper clips anything below its bottom boundary.",
+    "The sink finishes with only a small amount of hair visible or the character almost fully hidden.",
+    "Leaving hover restores the idle character cleanly.",
+    "No phantom limbs, crossfading, or blended frames are introduced by CSS."
+  ]
+}

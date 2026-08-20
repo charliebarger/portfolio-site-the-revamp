@@ -9,14 +9,16 @@ export interface SkillCardProps {
 
 const SkillCard = ({ title, description, icon }: SkillCardProps) => (
   <article className={styles.card}>
-    <Image
-      className={styles.icon}
-      src={icon}
-      alt=""
-      width={50}
-      height={50}
-      aria-hidden="true"
-    />
+    <div className={styles.imgWrapper}>
+      <Image
+        className={styles.icon}
+        src={icon}
+        alt=""
+        width={50}
+        height={50}
+        aria-hidden="true"
+      />
+    </div>
     <div className={styles.copy}>
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.description}>{description}</p>

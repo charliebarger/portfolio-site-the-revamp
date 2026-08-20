@@ -24,15 +24,6 @@
   gap: var(--scale-1000);
 }
 
-.title {
-  color: var(--color-text-headings);
-  font-family: var(--font-family-headings);
-  font-size: var(--font-size-h2);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-h2);
-  text-align: center;
-}
-
 .content {
   display: grid;
   grid-template-columns: minmax(0, 33.8125rem) minmax(25rem, 34.25rem);

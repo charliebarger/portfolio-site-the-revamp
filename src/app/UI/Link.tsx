@@ -16,11 +16,16 @@ const ContactLink = ({
   href,
 }: LinkProps) => {
   return (
-    <a className={styles.linkWrapper} target="_blank" href={href}>
+    <a
+      className={styles.linkWrapper}
+      target="_blank"
+      rel="noreferrer"
+      href={href}
+    >
       {icon && (
         <div className={clsx(styles.icon, styles[iconColor])}>{icon}</div>
       )}
-      {text && <span className={"text-body-sm-semibold "}>{text}</span>}
+      {text && <span className={styles.label}>{text}</span>}
     </a>
   );
 };

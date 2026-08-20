@@ -7,11 +7,12 @@
   border-radius: var(--border-radius-sm);
   background: var(--color-surface-page);
   box-shadow: var(--shadow-base);
+  max-width: fit-content;
 }
 
 .icon {
-  width: 3.125rem;
-  height: 3.125rem;
+  width: var(--icon-size-large);
+  height: var(--icon-size-large);
   flex: 0 0 auto;
 }
 
@@ -43,9 +44,11 @@
     align-items: flex-start;
     padding: var(--scale-400);
   }
+}
 
-  .icon {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
+.imgWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }

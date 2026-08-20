@@ -8,7 +8,7 @@ const Contact = () => (
   <div className={styles.shell}>
     <section id="contact" className={styles.page} aria-labelledby="contact-title">
       <div className={styles.main}>
-        <h2 id="contact-title" className={styles.title}>Get In Touch</h2>
+        <h2 id="contact-title" className="text-section-title">Get In Touch</h2>
         <div className={styles.content}>
           <div className={styles.intro}>
             <p className={styles.introCopy}>

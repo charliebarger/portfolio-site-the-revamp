@@ -1,0 +1,53 @@
+.buttonWrapper {
+  align-self: flex-start;
+}
+
+.stickerLayer {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sticker {
+  position: absolute;
+  top: var(--sticker-top);
+  left: var(--sticker-left);
+  width: var(--sticker-size);
+  height: auto;
+  opacity: 0;
+  user-select: none;
+  animation: maggiePop var(--sticker-duration) var(--ease-interactive)
+    var(--sticker-delay) both;
+}
+
+@keyframes maggiePop {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--sticker-rotation)) scale(0.25);
+  }
+
+  7% {
+    opacity: 1;
+    transform: rotate(var(--sticker-rotation)) scale(1.12);
+  }
+
+  11%,
+  88% {
+    opacity: 1;
+    transform: rotate(var(--sticker-rotation)) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(var(--sticker-rotation)) scale(0.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticker {
+    opacity: 1;
+    animation: none;
+  }
+}

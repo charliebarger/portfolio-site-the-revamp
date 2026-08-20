@@ -498,6 +498,32 @@ body {
   line-height: var(--line-height-h6);
 }
 
+/* Page and section title hierarchy */
+
+.text-section-title {
+  color: var(--color-text-headings);
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-h3);
+  text-align: center;
+}
+
+.text-subsection-title {
+  color: var(--color-text-headings);
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-h4);
+}
+
+@media (min-width: 48rem) {
+  .text-section-title {
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+  }
+}
+
 /* =========================
    FIGMA TEXT STYLES — BODY XS
    ========================= */

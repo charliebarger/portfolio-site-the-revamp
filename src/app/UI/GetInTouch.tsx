@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./getintouch.module.css";
 import Mail from "@/assets/mail.svg?react";
-import LinkedIn from "@/assets/linkedin.svg";
-import Github from "@/assets/github.svg";
-import Location from "@/assets/location.svg";
+import LinkedIn from "@/assets/linkedin.svg?react";
+import Github from "@/assets/github.svg?react";
+import Location from "@/assets/location.svg?react";
+import Resume from "@/assets/resume.svg?react";
 import ContactLink from "./Link";
 
 const GetInTouch = () => {
@@ -25,6 +26,13 @@ const GetInTouch = () => {
           href="mailto:charliebarger96@gmail.com"
           icon={<Github />}
           text="Github"
+        />
+      </div>
+      <div className={styles.resumeLink}>
+        <ContactLink
+          href="mailto:charliebarger96@gmail.com"
+          icon={<Resume />}
+          text="Resume"
         />
       </div>
       <ContactLink

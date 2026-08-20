@@ -5,10 +5,10 @@ import styles from "./page.module.css";
 
 const descriptions = [
   "Currently building research-driven digital products at Klein Buendel",
+  "Bridging product design and frontend engineering",
   "Building scalable design systems with Figma, React, and TypeScript",
   "Turning complex workflows into intuitive digital experiences",
   "Designing and engineering products from concept to production",
-  "Bridging product design and frontend engineering",
 ];
 
 const rotationDuration = 4_000;
@@ -29,8 +29,8 @@ export default function IntroCopy() {
       setIsTransitioning(true);
 
       transitionTimer = setTimeout(() => {
-        setDescriptionIndex((currentIndex) =>
-          (currentIndex + 1) % descriptions.length,
+        setDescriptionIndex(
+          (currentIndex) => (currentIndex + 1) % descriptions.length,
         );
         setIsTransitioning(false);
         rotationTimer = setTimeout(rotate, rotationDuration);

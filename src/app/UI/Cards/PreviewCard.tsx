@@ -3,7 +3,7 @@ import styles from "./card.module.css";
 import buttonStyles from "../Button/button.module.css";
 import Image from "next/image";
 import Pill from "../Pills/Pill";
-import Button from "../Button/button";
+import Button from "../Button/Button";
 import ArrowForward from "@/assets/arrow_forward.svg?react";
 
 export interface PreviewCardProps<T extends string = string> {
@@ -35,6 +35,7 @@ const PreviewCard = <T extends string>({
         alt={img.alt}
         width={300}
         height={250}
+        sizes="(max-width: 39.999rem) calc(100vw - 4rem), (max-width: 56.75rem) calc(100vw - 38rem), 300px"
         preload={img.preload}
         className={styles.image}
         style={{ height: "auto" }}

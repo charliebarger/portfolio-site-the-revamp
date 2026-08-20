@@ -148,7 +148,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 47.999rem) {
   .intro {
     min-height: 100svh;
     padding: var(--scale-400);

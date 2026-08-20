@@ -86,7 +86,7 @@
   transform: rotate(60deg);
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 47.999rem) {
   .menuToggle {
     position: relative;
     z-index: 30;

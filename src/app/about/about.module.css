@@ -14,20 +14,6 @@
   gap: var(--scale-1100);
 }
 
-.pageTitle,
-.introTitle,
-.sectionTitle {
-  color: var(--color-text-headings);
-  font-family: var(--font-family-headings);
-  font-weight: var(--font-weight-semibold);
-}
-
-.pageTitle {
-  font-size: var(--font-size-h2);
-  line-height: var(--line-height-h2);
-  text-align: center;
-}
-
 .about {
   display: grid;
   grid-template-columns: minmax(0, 33.8125rem) minmax(20rem, 1fr);
@@ -55,12 +41,6 @@
   line-height: var(--line-height-paragraph-lg);
 }
 
-.introTitle,
-.sectionTitle {
-  font-size: var(--font-size-h4);
-  line-height: var(--line-height-h4);
-}
-
 .introTitle {
   max-width: 26ch;
 }
@@ -73,6 +53,13 @@
   color: var(--color-text-body);
   font-size: var(--font-size-paragraph-md);
   line-height: var(--line-height-paragraph-md);
+}
+
+.portraitColumn {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: var(--scale-400);
 }
 
 .portraitFrame {
@@ -129,7 +116,7 @@
   }
 
   .main {
-    gap: var(--scale-1000);
+    gap: var(--scale-800);
   }
 
   .about {
@@ -138,12 +125,20 @@
     gap: var(--scale-700);
   }
 
-  .portraitFrame {
+  .portraitColumn {
     max-width: 33.8125rem;
     align-self: center;
   }
 
   .skillGrid {
     grid-template-columns: 1fr;
+  }
+
+  .section {
+    gap: var(--scale-600);
+  }
+
+  .sectionHeader {
+    gap: var(--scale-200);
   }
 }

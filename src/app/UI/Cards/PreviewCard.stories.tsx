@@ -15,7 +15,7 @@ export const Left: Story = {
   args: {
     side: "left",
     img: {
-      src: "/projects/speacs/preview1.png",
+      src: "/projects/speacs/preview.png",
       alt: "Fresh clinical communication platform preview",
     },
     href: "/projects",

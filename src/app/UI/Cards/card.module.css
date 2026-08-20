@@ -16,7 +16,6 @@
 .image {
   display: block;
   width: 100%;
-  max-width: 18.75rem;
   height: auto;
   border-radius: var(--border-radius-md);
 }
@@ -60,7 +59,7 @@
   color: var(--color-text-placeholder);
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 40rem) {
   .previewCard {
     padding: var(--scale-800);
     gap: var(--scale-700);
@@ -72,7 +71,7 @@
   }
 
   .image {
-    width: 18.75rem;
+    width: clamp(10rem, calc(100vw - 38rem), 18.75rem);
     flex-shrink: 0;
     align-self: flex-start;
   }

@@ -9,7 +9,7 @@ const projects = [
   {
     side: "left",
     img: {
-      src: "/projects/speacs/preview1.png",
+      src: "/projects/speacs/preview2.png",
       alt: "Speacs patient communication support guide shown on a laptop",
       preload: true,
     },
@@ -25,7 +25,7 @@ const projects = [
   {
     side: "right",
     img: {
-      src: "/projects/ezparent/preview1.png",
+      src: "/projects/ezparent/preview2.png",
       alt: "ezParent program logo on a blue and purple background",
     },
     text: {
@@ -40,7 +40,7 @@ const projects = [
   {
     side: "left",
     img: {
-      src: "/projects/fitbrothers/preview1.png",
+      src: "/projects/fitbrothers/preview22.png",
       alt: "FitBrothers mobile dashboard displayed on a phone",
     },
     text: {
@@ -131,7 +131,6 @@ const playSparkle = async (audioContext: AudioContext) => {
     oscillator.start(now + index * 0.055);
     oscillator.stop(now + 0.24 + index * 0.055);
   });
-
 };
 
 export default function Work() {
@@ -203,7 +202,7 @@ export default function Work() {
       aria-labelledby="work-title"
     >
       <header className={styles.header}>
-        <h2 id="work-title" className={styles.title}>
+        <h2 id="work-title" className="text-section-title">
           Things I’ve Made Recently
         </h2>
         <button

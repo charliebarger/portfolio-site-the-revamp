@@ -14,3 +14,14 @@
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-paragraph-sm);
 }
+
+@media (max-width: 50rem) {
+  .pill {
+    padding: var(--scale-100) var(--scale-200);
+  }
+
+  .text {
+    font-size: var(--font-size-paragraph-xsm);
+    line-height: var(--line-height-paragraph-xsm);
+  }
+}

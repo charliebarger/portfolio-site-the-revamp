@@ -5,6 +5,25 @@
   gap: var(--scale-100);
   color: var(--color-text-action);
   transition: color var(--duration-interactive) var(--ease-interactive);
+  color: var(--color-text-body);
+  &:hover {
+    > .icon {
+      color: var(--color-icon-action-hover);
+    }
+    color: var(--color-text-action-hover);
+  }
+}
+
+.label {
+  font-size: var(--font-size-paragraph-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-paragraph-sm);
+  color: inherit;
+
+  @media (max-width: 47.999rem) {
+    font-size: var(--font-size-paragraph-xsm);
+    line-height: var(--line-height-paragraph-xsm);
+  }
 }
 
 .linkWrapper:hover,
