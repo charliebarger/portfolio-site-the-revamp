@@ -7,6 +7,13 @@ const meta = {
   component: SkillCard,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+        <Story />
+      </ul>
+    ),
+  ],
 } satisfies Meta<typeof SkillCard>;
 
 export default meta;

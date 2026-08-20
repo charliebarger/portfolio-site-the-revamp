@@ -39,10 +39,30 @@
   line-height: var(--line-height-paragraph-md);
 }
 
-@media (max-width: 30rem) {
+@media (max-width: 47.999rem) {
   .card {
+    width: 100%;
     align-items: flex-start;
-    padding: var(--scale-400);
+    gap: var(--scale-300);
+    min-height: 0;
+    max-width: 33.8125rem;
+    padding: var(--scale-300);
+  }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .title {
+    font-size: var(--font-size-paragraph-md);
+    line-height: var(--line-height-paragraph-md);
+  }
+
+  .description {
+    max-width: none;
+    font-size: var(--font-size-paragraph-sm);
+    line-height: var(--line-height-paragraph-sm);
   }
 }
 

@@ -19,9 +19,8 @@
   width: 100%;
   max-width: 72rem;
   margin: 0 auto;
-  padding: var(--scale-1100);
+  padding: 0 var(--scale-1100) var(--scale-1100);
   flex-direction: column;
-  gap: var(--scale-1000);
 }
 
 .content {
@@ -64,8 +63,8 @@
 
 .socials svg {
   display: block;
-  width: 1.875rem;
-  height: 1.875rem;
+  width: var(--icon-size-base);
+  height: var(--icon-size-base);
   fill: currentColor;
 }
 
@@ -75,6 +74,9 @@
 }
 
 .resume {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--scale-100);
   font-size: var(--font-size-paragraph-sm);
   font-weight: var(--font-weight-semibold);
 }
@@ -87,11 +89,9 @@
 
 @media (max-width: 47.999rem) {
   .main {
+    padding-top: 0;
     padding-left: var(--scale-400);
     padding-right: var(--scale-400);
-  }
-
-  .main {
-    padding-top: var(--scale-700);
+    padding-bottom: var(--scale-700);
   }
 }

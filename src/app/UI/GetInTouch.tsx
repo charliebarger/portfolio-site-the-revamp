@@ -18,19 +18,19 @@ const GetInTouch = () => {
           text="charliebarger96@gmail.com"
         />
         <ContactLink
-          href="mailto:charliebarger96@gmail.com"
+          href="https://www.linkedin.com/in/charlie-barger/"
           icon={<LinkedIn />}
           text="LinkedIn"
         />
         <ContactLink
-          href="mailto:charliebarger96@gmail.com"
+          href="https://github.com/charliebarger"
           icon={<Github />}
           text="Github"
         />
       </div>
       <div className={styles.resumeLink}>
         <ContactLink
-          href="mailto:charliebarger96@gmail.com"
+          href="/charlie_barger_resume.pdf"
           icon={<Resume />}
           text="Resume"
         />

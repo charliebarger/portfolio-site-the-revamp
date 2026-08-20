@@ -1,6 +1,6 @@
 .page {
   width: 100%;
-  padding: var(--scale-1100);
+  padding: 0 var(--scale-1100) var(--scale-1100);
   background: var(--color-surface-card);
   scroll-margin-top: 0;
 }
@@ -10,6 +10,11 @@
   width: 100%;
   max-width: 72rem;
   margin: 0 auto;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
   flex-direction: column;
   gap: var(--scale-1100);
 }
@@ -98,6 +103,9 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--scale-600) var(--scale-900);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 @media (max-width: 64rem) {
@@ -112,30 +120,45 @@
 
 @media (max-width: 47.999rem) {
   .page {
-    padding: var(--scale-400);
+    padding: 0 var(--scale-400) var(--scale-900);
   }
 
-  .main {
-    gap: var(--scale-800);
+  .content {
+    gap: var(--scale-900);
+  }
+
+  .pageHeader h2 {
+    text-align: left;
   }
 
   .about {
     display: flex;
     flex-direction: column-reverse;
-    gap: var(--scale-700);
+    gap: var(--scale-600);
+  }
+
+  .aboutCopy {
+    gap: var(--scale-500);
+  }
+
+  .bio {
+    gap: var(--scale-300);
   }
 
   .portraitColumn {
     max-width: 33.8125rem;
-    align-self: center;
+    gap: var(--scale-300);
   }
 
   .skillGrid {
+    width: 100%;
+    max-width: 33.8125rem;
     grid-template-columns: 1fr;
+    gap: var(--scale-300);
   }
 
   .section {
-    gap: var(--scale-600);
+    gap: var(--scale-500);
   }
 
   .sectionHeader {

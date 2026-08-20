@@ -130,14 +130,23 @@ const LocationMap = () => {
     };
   }, []);
 
-  const distance = visitor
+  const distanceInMiles = visitor
     ? Math.round(
         milesBetween(
           [visitor.longitude, visitor.latitude],
           denver.coordinates,
         ),
-      ).toLocaleString()
+      )
     : null;
+  const distance = distanceInMiles?.toLocaleString() ?? null;
+  const isFlorida = visitor
+    ? ["fl", "florida"].includes(visitor.region.trim().toLowerCase())
+    : false;
+  const proximityMessage = isFlorida
+    ? "Perfect! I’ve been looking for a reason to come home! 🏖️🏄🏻‍♂️🐚"
+    : distanceInMiles !== null && distanceInMiles > 200
+      ? "Good news, I’m only a plane ride away! ✈️"
+      : "Look at that, you’re right around the corner! ⛰️";
 
   return (
     <div className={styles.card}>
@@ -155,7 +164,7 @@ const LocationMap = () => {
             </>
           )}
         </p>
-        <p>Look at that, you’re right around the corner! ⛰️</p>
+        <p>{proximityMessage}</p>
       </div>
     </div>
   );

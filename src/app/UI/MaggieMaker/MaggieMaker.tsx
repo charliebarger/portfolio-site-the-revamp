@@ -35,10 +35,16 @@ const MaggieMaker = () => {
 
     const src = maggieStickers[Math.floor(Math.random() * maggieStickers.length)];
     const exitTime = 4000 + Math.round(Math.random() * 3000);
-    const size = Math.min(
-      160,
-      Math.max(48, viewportWidth * (0.075 + Math.random() * 0.06)),
-    );
+    const size =
+      viewportWidth < 768
+        ? Math.min(
+            140,
+            Math.max(80, viewportWidth * (0.2 + Math.random() * 0.12)),
+          )
+        : Math.min(
+            160,
+            Math.max(48, viewportWidth * (0.075 + Math.random() * 0.06)),
+          );
     const safeWidth = Math.max(0, viewportWidth - size);
     const safeHeight = Math.max(0, viewportHeight - size * 1.3);
     const newSticker: Sticker = {

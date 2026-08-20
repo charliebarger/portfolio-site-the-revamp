@@ -20,8 +20,18 @@ export const Default: Story = {
     expect(
       canvas.getByRole("link", { name: "charliebarger96@gmail.com" }),
     ).toHaveAttribute("href", "mailto:charliebarger96@gmail.com");
-    expect(canvas.getByRole("link", { name: "LinkedIn" })).toBeInTheDocument();
-    expect(canvas.getByRole("link", { name: "Github" })).toBeInTheDocument();
+    expect(canvas.getByRole("link", { name: "LinkedIn" })).toHaveAttribute(
+      "href",
+      "https://www.linkedin.com/in/charlie-barger/",
+    );
+    expect(canvas.getByRole("link", { name: "Github" })).toHaveAttribute(
+      "href",
+      "https://github.com/charliebarger",
+    );
+    expect(canvas.getByRole("link", { name: "Resume" })).toHaveAttribute(
+      "href",
+      "/charlie_barger_resume.pdf",
+    );
     expect(canvas.getByRole("link", { name: "Denver, Co" })).toBeInTheDocument();
   },
 };

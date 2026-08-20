@@ -55,7 +55,7 @@ const projects = [
   {
     side: "right",
     img: {
-      src: "/projects/fresh/preview1.png",
+      src: "/projects/fresh/preview2.png",
       alt: "Project FRESH survey displayed on a phone",
     },
     text: {
@@ -201,7 +201,7 @@ export default function Work() {
       className={styles.work}
       aria-labelledby="work-title"
     >
-      <header className={styles.header}>
+      <header className={`${styles.header} page-section-header`}>
         <h2 id="work-title" className="text-section-title">
           Things I’ve Made Recently
         </h2>
@@ -229,9 +229,11 @@ export default function Work() {
         </button>
       </header>
 
-      {projects.map((project) => (
-        <PreviewCard key={project.text.title} {...project} />
-      ))}
+      <div className={styles.projectList}>
+        {projects.map((project) => (
+          <PreviewCard key={project.text.title} {...project} />
+        ))}
+      </div>
     </section>
   );
 }

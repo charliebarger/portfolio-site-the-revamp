@@ -8,7 +8,7 @@ export interface SkillCardProps {
 }
 
 const SkillCard = ({ title, description, icon }: SkillCardProps) => (
-  <article className={styles.card}>
+  <li className={styles.card}>
     <div className={styles.imgWrapper}>
       <Image
         className={styles.icon}
@@ -20,10 +20,10 @@ const SkillCard = ({ title, description, icon }: SkillCardProps) => (
       />
     </div>
     <div className={styles.copy}>
-      <h3 className={styles.title}>{title}</h3>
+      <h4 className={styles.title}>{title}</h4>
       <p className={styles.description}>{description}</p>
     </div>
-  </article>
+  </li>
 );
 
 export default SkillCard;

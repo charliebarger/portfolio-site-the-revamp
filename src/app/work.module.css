@@ -2,11 +2,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--scale-800);
   width: 100%;
-  padding: var(--scale-800) var(--scale-400);
+  padding: 0 var(--scale-400) var(--scale-800);
   background: var(--color-surface-page);
   scroll-margin-top: 0;
+}
+
+.projectList {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--scale-800);
 }
 
 .header {
@@ -168,8 +175,11 @@
 
 @media (min-width: 48rem) {
   .work {
+    padding: 0 var(--scale-1100) var(--scale-1100);
+  }
+
+  .projectList {
     gap: var(--scale-1000);
-    padding: var(--scale-1100);
   }
 
   .timeline {

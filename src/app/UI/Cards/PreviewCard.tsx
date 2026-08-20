@@ -29,7 +29,7 @@ const PreviewCard = <T extends string>({
   href,
 }: PreviewCardProps<T>) => {
   return (
-    <div className={styles.previewCard} data-side={side}>
+    <article className={styles.previewCard} data-side={side}>
       <Image
         src={img.src}
         alt={img.alt}
@@ -70,7 +70,7 @@ const PreviewCard = <T extends string>({
           }
         />
       </section>
-    </div>
+    </article>
   );
 };
 
