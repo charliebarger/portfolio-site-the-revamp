@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  width: 100%;
+  max-width: 80rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--scale-400);
+  overflow-wrap: anywhere;
+}
+
+.eyebrow {
+  color: var(--color-text-information);
+}
+
+.titleGroup {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: var(--scale-200);
+}
+
+.title {
+  font-weight: var(--font-weight-semibold);
+}
+
+.extraInfo {
+  color: var(--color-text-placeholder);
+}
+
+.description {
+  width: 100%;
+}
+
+@media (max-width: 47.999rem) {
+  .header {
+    gap: var(--scale-300);
+  }
+
+  .description {
+    font-size: var(--font-size-paragraph-md);
+    line-height: var(--line-height-paragraph-md);
+  }
+}

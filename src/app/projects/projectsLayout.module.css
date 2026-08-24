@@ -1,0 +1,13 @@
+.shell {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  background: var(--color-surface-page);
+}
+
+.shell > main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}

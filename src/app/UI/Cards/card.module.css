@@ -59,6 +59,10 @@
   color: var(--color-text-placeholder);
 }
 
+.description {
+  line-height: var(--line-height-paragraph-lg);
+}
+
 @media (min-width: 40rem) {
   .previewCard {
     padding: var(--scale-800);

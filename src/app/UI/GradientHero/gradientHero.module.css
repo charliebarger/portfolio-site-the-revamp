@@ -1,0 +1,9 @@
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: linear-gradient(
+    121deg,
+    var(--color-surface-card) 13.56%,
+    var(--color-surface-page-fancy) 86.44%
+  );
+}

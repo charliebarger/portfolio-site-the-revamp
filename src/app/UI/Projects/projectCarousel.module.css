@@ -1,0 +1,156 @@
+.carousel {
+  display: flex;
+  width: 100%;
+  max-width: 40.625rem;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--scale-200);
+  touch-action: pan-y;
+}
+
+.carousel:focus-visible {
+  border-radius: var(--border-radius-md);
+  outline: var(--border-width-md) solid var(--color-border-action);
+  outline-offset: var(--scale-100);
+}
+
+.slideRow {
+  position: relative;
+  width: 100%;
+  padding-inline: var(--scale-500);
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 600 / 400;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  background: var(--color-cool-neutral-900);
+}
+
+.track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 400ms var(--ease-interactive);
+  will-change: transform;
+}
+
+.slidePanel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex: 0 0 100%;
+}
+
+.image {
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.navigationButton {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  display: flex;
+  width: var(--scale-900);
+  height: var(--scale-900);
+  align-items: center;
+  justify-content: center;
+  padding: var(--scale-200);
+  border: var(--border-width-sm) solid var(--color-border-light);
+  border-radius: var(--border-radius-full);
+  color: var(--color-icon-action);
+  background: var(--color-surface-card);
+  box-shadow: var(--shadow-base);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:
+    color var(--duration-interactive) var(--ease-interactive),
+    transform var(--duration-interactive) var(--ease-interactive);
+}
+
+.navigationButton:hover {
+  color: var(--color-icon-action-hover);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.navigationButton:focus-visible,
+.indicator:focus-visible {
+  outline: var(--border-width-md) solid var(--color-border-action);
+  outline-offset: var(--scale-100);
+}
+
+.navigationButton svg {
+  width: var(--icon-size-base);
+  height: var(--icon-size-base);
+  fill: currentColor;
+}
+
+.previousButton {
+  left: 0;
+}
+
+.previousButton svg {
+  transform: rotate(180deg);
+}
+
+.nextButton {
+  right: 0;
+}
+
+.indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--scale-100);
+  padding: var(--scale-100) var(--scale-200);
+}
+
+.indicator {
+  width: var(--scale-300);
+  height: var(--scale-300);
+  border: var(--border-width-sm) solid var(--color-border-action);
+  border-radius: var(--border-radius-full);
+  background: var(--color-surface-card);
+  cursor: pointer;
+}
+
+.indicator[aria-current="true"] {
+  background: var(--color-surface-action);
+}
+
+.status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 47.999rem) {
+  .slideRow {
+    padding-inline: var(--scale-400);
+  }
+
+  .navigationButton {
+    width: var(--scale-800);
+    height: var(--scale-800);
+    padding: var(--scale-100);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    transition: none;
+  }
+
+  .navigationButton {
+    transition: none;
+  }
+}

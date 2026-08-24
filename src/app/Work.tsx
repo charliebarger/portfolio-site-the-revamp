@@ -20,7 +20,7 @@ const projects = [
         "Clinical communication platform helping ICU nurses generate personalized care plans for mechanically ventilated patients.",
       pills: ["Design System", "Dynamic Workflows", "Frontend Architecture"],
     },
-    href: "/#work",
+    href: "/projects/speacs",
   },
   {
     side: "right",

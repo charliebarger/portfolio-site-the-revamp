@@ -1,0 +1,15 @@
+.siteHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  padding: var(--scale-700);
+  background: transparent;
+}
+
+@media (max-width: 47.999rem) {
+  .siteHeader {
+    padding: var(--scale-400);
+  }
+}

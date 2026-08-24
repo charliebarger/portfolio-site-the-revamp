@@ -1,0 +1,48 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  max-width: var(--paragraph-width-md);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--scale-300);
+}
+
+.projectCard {
+  color: var(--color-text-headings, #f0f4f8);
+  font-family: var(--font-family-headings, "Roboto Slab");
+  font-size: clamp(4rem, 7.64vw, 6.875rem);
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.08;
+  padding-bottom: var(--scale-300);
+}
+
+.whoMadeIt {
+  color: var(--color-text-placeholder);
+}
+
+.subheading {
+  color: var(--color-text-information);
+}
+
+@media (max-width: 47.999rem) {
+  .wrapper {
+    gap: var(--scale-200);
+  }
+
+  .projectCard {
+    padding-bottom: var(--scale-100);
+    font-size: clamp(2.25rem, 12vw, 3rem);
+    line-height: 1.05;
+  }
+
+  .subheading {
+    font-size: var(--font-size-paragraph-md);
+    line-height: var(--line-height-paragraph-md);
+  }
+
+  .description {
+    font-size: var(--font-size-paragraph-sm);
+    line-height: var(--line-height-paragraph-sm);
+  }
+}

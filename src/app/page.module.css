@@ -1,16 +1,10 @@
 .intro {
-  background: linear-gradient(
-    121deg,
-    var(--color-surface-card) 13.56%,
-    var(--color-surface-page-fancy) 86.44%
-  );
-  min-height: 100vh;
   padding: var(--scale-700);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .avatar {
@@ -150,7 +144,6 @@
 
 @media (max-width: 47.999rem) {
   .intro {
-    min-height: 100svh;
     padding: var(--scale-400);
   }
 

@@ -1,4 +1,5 @@
 import styles from "./footer.module.css";
+import SmoothAnchorLink from "../SmoothAnchorLink";
 
 const Footer = () => (
   <footer className={styles.footer}>
@@ -8,15 +9,10 @@ const Footer = () => (
       <p className={styles.copyright}>© 2026</p>
     </div>
     <nav className={styles.links} aria-label="Footer navigation">
-      {/* The project currently has incompatible React/Next Link types. */}
-      {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-      <a href="/#top">Home</a>
-      {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-      <a href="/#work">Work</a>
-      {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-      <a href="/#about">About</a>
-      {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-      <a href="/#contact">Contact</a>
+      <SmoothAnchorLink href="/#top">Home</SmoothAnchorLink>
+      <SmoothAnchorLink href="/#work">Work</SmoothAnchorLink>
+      <SmoothAnchorLink href="/#about">About</SmoothAnchorLink>
+      <SmoothAnchorLink href="/#contact">Contact</SmoothAnchorLink>
     </nav>
   </footer>
 );

@@ -1,0 +1,21 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  padding: var(--scale-1100);
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  flex: 1;
+  align-items: center;
+}
+
+@media (max-width: 47.999rem) {
+  .hero {
+    padding: calc(var(--scale-1100) + var(--scale-900)) var(--scale-400)
+      var(--scale-700);
+  }
+}

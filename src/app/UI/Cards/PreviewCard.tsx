@@ -48,7 +48,9 @@ const PreviewCard = <T extends string>({
               {text.subtext}
             </span>
           </div>
-          <p className="text-body-md">{text.description}</p>
+          <p className={`${styles.description} text-body-md`}>
+            {text.description}
+          </p>
           <div className={styles.pillsContainer}>
             {text.pills.map((pillText, index) => (
               <Pill key={`${pillText}-${index}`} text={pillText} />

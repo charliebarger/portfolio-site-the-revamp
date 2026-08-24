@@ -6,6 +6,7 @@ import Moon from "@/assets/moon.svg?react";
 import Sun from "@/assets/sun.svg?react";
 import { useThemeStore, type Theme } from "@/stores/themeStore";
 import { useEffect, useState } from "react";
+import SmoothAnchorLink from "../../SmoothAnchorLink";
 
 const isTheme = (value: string | undefined): value is Theme =>
   value === "light" || value === "dark";
@@ -16,7 +17,7 @@ interface NavBarItems {
 }
 
 const links: NavBarItems[] = [
-  { href: "/", label: "Home" },
+  { href: "/#top", label: "Home" },
   { href: "/#work", label: "Work" },
   { href: "/#about", label: "About" },
   { href: "/#contact", label: "Contact" },
@@ -103,15 +104,19 @@ const NavBar = () => {
         aria-label="Primary navigation"
       >
         {links.map((link) => (
-          <a
+          <SmoothAnchorLink
             key={link.href}
             href={link.href}
             className={`${styles.linkItem} text-body-lg`}
-            data-active={pathname === link.href ? "true" : "false"}
+            data-active={
+              pathname === (link.href === "/#top" ? "/" : link.href)
+                ? "true"
+                : "false"
+            }
             onClick={() => setIsMenuOpen(false)}
           >
             {link.label}
-          </a>
+          </SmoothAnchorLink>
         ))}
         <button
           className={styles.themeToggle}
