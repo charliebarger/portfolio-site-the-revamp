@@ -19,19 +19,34 @@ const ProjectCarousel = ({ images, label }: ProjectCarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [trackIndex, setTrackIndex] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(true);
+  const isAnimatingRef = useRef(false);
   const pointerStartXRef = useRef<number | null>(null);
 
-  const showPrevious = () => {
+  const moveToAdjacentSlide = (direction: -1 | 1) => {
+    if (isAnimatingRef.current || images.length <= 1) return;
+
+    const nextActiveIndex =
+      (activeIndex + direction + images.length) % images.length;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (prefersReducedMotion) {
+      setIsTransitioning(false);
+      setTrackIndex(nextActiveIndex + 1);
+      setActiveIndex(nextActiveIndex);
+      return;
+    }
+
+    isAnimatingRef.current = true;
     setIsTransitioning(true);
-    setTrackIndex((index) => index - 1);
-    setActiveIndex((index) => (index - 1 + images.length) % images.length);
+    setTrackIndex((index) => index + direction);
+    setActiveIndex(nextActiveIndex);
   };
 
-  const showNext = () => {
-    setIsTransitioning(true);
-    setTrackIndex((index) => index + 1);
-    setActiveIndex((index) => (index + 1) % images.length);
-  };
+  const showPrevious = () => moveToAdjacentSlide(-1);
+
+  const showNext = () => moveToAdjacentSlide(1);
 
   const handlePointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
     const startX = pointerStartXRef.current;
@@ -89,6 +104,8 @@ const ProjectCarousel = ({ images, label }: ProjectCarouselProps) => {
             onTransitionEnd={(event) => {
               if (event.propertyName !== "transform") return;
 
+              isAnimatingRef.current = false;
+
               if (trackIndex === 0) {
                 setIsTransitioning(false);
                 setTrackIndex(images.length);
@@ -109,21 +126,21 @@ const ProjectCarousel = ({ images, label }: ProjectCarouselProps) => {
               const isActive = !isClone && imageIndex === activeIndex;
 
               return (
-              <div
-                key={`${image.src}-${index}`}
-                className={styles.slidePanel}
-                aria-hidden={!isActive}
-              >
-                <Image
-                  className={styles.image}
-                  src={image.src}
-                  alt={isActive ? image.alt : ""}
-                  fill
-                  sizes="(max-width: 47.999rem) calc(100vw - 4rem), (max-width: 80rem) 48vw, 600px"
-                  priority={imageIndex === 0}
-                  draggable={false}
-                />
-              </div>
+                <div
+                  key={`${image.src}-${index}`}
+                  className={styles.slidePanel}
+                  aria-hidden={!isActive}
+                >
+                  <Image
+                    className={styles.image}
+                    src={image.src}
+                    alt={isActive ? image.alt : ""}
+                    fill
+                    sizes="(max-width: 47.999rem) calc(100vw - 4rem), (max-width: 80rem) 48vw, 600px"
+                    priority={imageIndex === 0}
+                    draggable={false}
+                  />
+                </div>
               );
             })}
           </div>
@@ -148,6 +165,8 @@ const ProjectCarousel = ({ images, label }: ProjectCarouselProps) => {
             aria-label={`Show image ${index + 1} of ${images.length}`}
             aria-current={index === activeIndex ? "true" : undefined}
             onClick={() => {
+              if (isAnimatingRef.current) return;
+
               setIsTransitioning(true);
               setTrackIndex(index + 1);
               setActiveIndex(index);

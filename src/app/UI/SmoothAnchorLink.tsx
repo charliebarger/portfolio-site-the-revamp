@@ -29,17 +29,33 @@ const SmoothAnchorLink = ({
     }
 
     const destination = new URL(href, window.location.href);
-    if (destination.pathname !== pathname || !destination.hash) return;
+    if (destination.pathname !== pathname) return;
 
-    const target = document.getElementById(decodeURIComponent(destination.hash.slice(1)));
+    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)")
+      .matches
+      ? "auto"
+      : "smooth";
+
+    if (!destination.hash) {
+      event.preventDefault();
+      window.history.pushState(
+        null,
+        "",
+        `${destination.pathname}${destination.search}`,
+      );
+      window.scrollTo({ top: 0, behavior });
+      return;
+    }
+
+    const target = document.getElementById(
+      decodeURIComponent(destination.hash.slice(1)),
+    );
     if (!target) return;
 
     event.preventDefault();
     window.history.pushState(null, "", destination.hash);
     target.scrollIntoView({
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "auto"
-        : "smooth",
+      behavior,
       block: "start",
     });
   };

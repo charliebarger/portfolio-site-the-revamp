@@ -1,48 +1,168 @@
-.wrapper {
-  display: flex;
+.hero {
+  display: grid;
   width: 100%;
-  max-width: var(--paragraph-width-md);
+  grid-template-columns: minmax(0, 37.125rem) minmax(0, 40.625rem);
+  align-items: center;
+  justify-content: center;
+  gap: var(--scale-700);
+}
+.copy,
+.copyGroup {
+  display: flex;
+  min-width: 0;
   flex-direction: column;
   align-items: flex-start;
+}
+.copy {
+  gap: var(--scale-600);
+}
+.copyGroup {
+  width: 100%;
   gap: var(--scale-300);
 }
-
-.projectCard {
-  color: var(--color-text-headings, #f0f4f8);
-  font-family: var(--font-family-headings, "Roboto Slab");
+.title {
+  color: var(--color-text-headings);
+  font-family: var(--font-family-headings);
   font-size: clamp(4rem, 7.64vw, 6.875rem);
-  font-style: normal;
   font-weight: 900;
-  line-height: 1.08;
-  padding-bottom: var(--scale-300);
+  line-height: 0.9;
+  text-transform: uppercase;
 }
-
+.compactTitle {
+  font-size: clamp(3.25rem, 6vw, 5.5rem);
+  text-transform: none;
+}
 .whoMadeIt {
   color: var(--color-text-placeholder);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-xsm);
+  line-height: var(--line-height-paragraph-xsm);
 }
-
 .subheading {
   color: var(--color-text-information);
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-h5);
+}
+.description {
+  max-width: var(--paragraph-width-md);
+  color: var(--color-text-body);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-md);
+  line-height: var(--line-height-paragraph-md);
+}
+.researchLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--scale-200) var(--scale-300);
+  border: var(--border-width-sm) solid var(--color-border-action);
+  border-radius: var(--border-radius-full);
+  color: var(--color-text-action);
+  text-decoration: none;
+  transition: color var(--duration-interactive) var(--ease-interactive),
+    background var(--duration-interactive) var(--ease-interactive);
+}
+.researchLink:hover {
+  color: var(--color-text-action-hover);
+  background: var(--color-surface-action-hover-light);
+}
+.researchLink:focus-visible {
+  outline: var(--border-width-md) solid var(--color-border-action);
+  outline-offset: var(--scale-100);
+}
+.slider {
+  width: 100%;
+}
+.phones {
+  display: flex;
+  min-height: 28.875rem;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--scale-800);
+  padding-inline: var(--scale-500);
+}
+.phone {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--scale-400);
+  color: var(--color-text-body);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-paragraph-md);
+  text-align: center;
+}
+.phoneImage {
+  width: 13.375rem;
+  height: 27.125rem;
+  object-fit: contain;
+}
+.desktopVisual {
+  position: relative;
+  width: 100%;
+  max-width: 37.5rem;
+  aspect-ratio: 20 / 13;
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+}
+.desktopImage {
+  object-fit: cover;
+}
+
+@media (max-width: 63.999rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 1fr);
+  }
+  .phones {
+    gap: var(--scale-300);
+  }
+  .phoneImage {
+    width: min(10.5rem, 20vw);
+    height: auto;
+  }
 }
 
 @media (max-width: 47.999rem) {
-  .wrapper {
+  .hero {
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: var(--scale-600);
+  }
+  .copy,
+  .copyGroup {
     gap: var(--scale-200);
   }
-
-  .projectCard {
-    padding-bottom: var(--scale-100);
-    font-size: clamp(2.25rem, 12vw, 3rem);
-    line-height: 1.05;
+  .title {
+    font-size: clamp(2.75rem, 15vw, 5rem);
   }
-
+  .compactTitle {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
   .subheading {
     font-size: var(--font-size-paragraph-md);
     line-height: var(--line-height-paragraph-md);
   }
-
   .description {
     font-size: var(--font-size-paragraph-sm);
     line-height: var(--line-height-paragraph-sm);
+  }
+  .phones {
+    width: 100%;
+    min-height: 0;
+    gap: var(--scale-400);
+    padding: 0;
+  }
+  .phone {
+    min-width: 0;
+    flex: 1;
+    font-size: var(--font-size-paragraph-sm);
+  }
+  .phoneImage {
+    width: min(100%, 13.375rem);
+    height: auto;
   }
 }

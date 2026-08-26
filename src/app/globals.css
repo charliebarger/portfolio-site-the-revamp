@@ -24,6 +24,46 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html.theme-switching,
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+}
+
+body.page-wobble {
+  transform-origin: center top;
+  animation: pageWobble 750ms ease-in-out;
+}
+
+@keyframes pageWobble {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+
+  15% {
+    transform: translateX(-1.25rem) translateY(0.2rem) rotate(-1.25deg);
+  }
+
+  30% {
+    transform: translateX(1.25rem) translateY(-0.15rem) rotate(1.25deg);
+  }
+
+  45% {
+    transform: translateX(-0.9rem) translateY(0.1rem) rotate(-0.9deg);
+  }
+
+  60% {
+    transform: translateX(0.9rem) translateY(-0.1rem) rotate(0.9deg);
+  }
+
+  75% {
+    transform: translateX(-0.45rem) rotate(-0.45deg);
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -42,6 +82,10 @@ a {
 
   body {
     transition: none;
+  }
+
+  body.page-wobble {
+    animation: none;
   }
 }
 

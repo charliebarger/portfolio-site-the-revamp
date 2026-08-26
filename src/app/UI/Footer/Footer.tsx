@@ -9,7 +9,7 @@ const Footer = () => (
       <p className={styles.copyright}>© 2026</p>
     </div>
     <nav className={styles.links} aria-label="Footer navigation">
-      <SmoothAnchorLink href="/#top">Home</SmoothAnchorLink>
+      <SmoothAnchorLink href="/">Home</SmoothAnchorLink>
       <SmoothAnchorLink href="/#work">Work</SmoothAnchorLink>
       <SmoothAnchorLink href="/#about">About</SmoothAnchorLink>
       <SmoothAnchorLink href="/#contact">Contact</SmoothAnchorLink>

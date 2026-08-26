@@ -1,0 +1,57 @@
+.card {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  flex-direction: column;
+  border: var(--border-width-sm) solid var(--color-border-default);
+  border-radius: var(--border-radius-lg);
+  background: var(--color-surface-highlight);
+  box-shadow: var(--shadow-base);
+}
+
+.topWrapper {
+  display: flex;
+  width: 100%;
+  padding: var(--scale-600) var(--scale-500);
+  align-items: center;
+  justify-content: center;
+}
+
+.imgWrapper {
+  display: flex;
+  width: var(--icon-size-large);
+  height: var(--icon-size-large);
+  flex: 0 0 var(--icon-size-large);
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secondary-50);
+}
+
+.imgWrapper > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.imgWrapper > svg {
+  fill: var(--color-icon-highlight);
+}
+
+.textWrapper {
+  display: flex;
+  width: 100%;
+  min-height: var(--scale-1000);
+  padding: var(--scale-300);
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-card);
+}
+
+.textWrapper p {
+  color: var(--color-text-body);
+  font-size: var(--font-size-paragraph-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-paragraph-sm);
+  text-align: center;
+}

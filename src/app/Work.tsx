@@ -35,7 +35,7 @@ const projects = [
         "An evidence-based parenting platform for parents, facilitators, and researchers.",
       pills: ["Interactive Learning", "Research Collaboration", "Localization"],
     },
-    href: "/#work",
+    href: "/projects/ezparent",
   },
   {
     side: "left",
@@ -50,7 +50,7 @@ const projects = [
         "A mobile health platform that combined wearable technology, personalized goals, and gamification to encourage long-term healthy habits.",
       pills: ["Wearable Integration", "Data Visualization", "Gamification"],
     },
-    href: "/#work",
+    href: "/projects/fitbrothers",
   },
   {
     side: "right",
@@ -66,7 +66,7 @@ const projects = [
         "Behavior change research platform helping first-year college students better understand alcohol use, cannabis use, and sexual health through personalized insights and longitudinal surveys.",
       pills: ["Role-Based Access", "Progressive Web App", "Data Visualization"],
     },
-    href: "/#work",
+    href: "/projects/fresh",
   },
 ] satisfies PreviewCardProps[];
 

@@ -380,7 +380,7 @@
   --color-icon-action: var(--color-primary-300);
   --color-icon-action-hover: var(--color-primary-200);
   --color-icon-disabled: var(--color-neutral-200);
-  --color-icon-highlight: var(--color-secondary-50);
+  --color-icon-highlight: var(--color-secondary-600);
   --color-icon-success: var(--color-success-600);
   --color-icon-error: var(--color-error-600);
   --color-icon-light: var(--color-neutral-700);

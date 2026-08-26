@@ -1,0 +1,187 @@
+.card {
+  width: 100%;
+  padding: var(--scale-900);
+  border: var(--border-width-sm) solid var(--color-border-default);
+  border-radius: var(--border-radius-xl);
+  background: var(--color-surface-card);
+  box-shadow: var(--shadow-base);
+}
+
+.hug {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: var(--scale-800);
+}
+
+.copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.copy h2 {
+  color: var(--color-text-headings);
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-h2);
+}
+
+.copy p {
+  margin-top: var(--scale-400);
+  color: var(--color-text-body);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-lg);
+  line-height: var(--line-height-paragraph-lg);
+}
+
+.gallery {
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--scale-300);
+}
+
+.imageFrame {
+  position: relative;
+  width: 37.5rem;
+  height: 24.375rem;
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.desktop.right .gallery,
+.desktop.left .gallery {
+  width: 50%;
+  max-width: 37.5rem;
+  min-width: 0;
+  flex: 0 1 37.5rem;
+}
+
+.desktop.right .imageFrame,
+.desktop.left .imageFrame {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 20 / 13;
+}
+
+.left .copy {
+  order: 2;
+}
+
+.left .gallery {
+  order: 1;
+}
+
+.bottom .content,
+.bottom-border .content {
+  flex-direction: column;
+}
+
+.bottom .gallery,
+.bottom-border .gallery {
+  width: 100%;
+  gap: var(--scale-800);
+}
+
+.bottom .imageFrame,
+.bottom-border .imageFrame {
+  width: auto;
+  height: auto;
+  aspect-ratio: 20 / 13;
+  flex: 1;
+}
+
+.borderedImage {
+  padding: var(--scale-200);
+  border: var(--border-width-sm) solid var(--color-border-default);
+  background: var(--color-surface-page);
+}
+
+.borderedImage .image {
+  padding: var(--scale-200);
+  border-radius: calc(var(--border-radius-md) + var(--scale-200));
+}
+
+.mobile.right .content,
+.mobile.left .content {
+  gap: var(--scale-900);
+}
+
+.mobile.right .gallery,
+.mobile.left .gallery {
+  gap: var(--scale-800);
+}
+
+.mobile.right .imageFrame,
+.mobile.left .imageFrame {
+  width: 12.3125rem;
+  height: 25rem;
+}
+
+.mobile .image {
+  object-fit: contain;
+}
+
+.mobile.right .copy,
+.mobile.left .copy {
+  width: 31.25rem;
+  flex: 0 1 31.25rem;
+}
+
+@media (max-width: 63.999rem) {
+  .card {
+    padding: var(--scale-500);
+    border-radius: var(--border-radius-lg);
+  }
+
+  .content,
+  .mobile.right .content,
+  .mobile.left .content {
+    flex-direction: column;
+    gap: var(--scale-500);
+  }
+
+  .copy,
+  .mobile.right .copy,
+  .mobile.left .copy {
+    width: 100%;
+    flex: none;
+    order: 1;
+  }
+
+  .gallery,
+  .left .gallery,
+  .desktop.right .gallery,
+  .desktop.left .gallery,
+  .mobile.right .gallery,
+  .mobile.left .gallery {
+    display: grid;
+    width: 100%;
+    max-width: none;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+    order: 2;
+    gap: var(--scale-300);
+  }
+
+  .imageFrame,
+  .bottom .imageFrame,
+  .bottom-border .imageFrame {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 20 / 13;
+  }
+
+  .mobile.right .imageFrame,
+  .mobile.left .imageFrame {
+    aspect-ratio: 197 / 400;
+  }
+}

@@ -1,0 +1,40 @@
+.card {
+  display: flex;
+  width: 100%;
+  max-width: 80rem;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--scale-900);
+  border: var(--border-width-md) solid var(--color-border-action);
+  border-radius: var(--border-radius-xl);
+  background: var(--color-surface-card);
+}
+
+.card p {
+  width: 100%;
+  color: var(--color-text-body);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-paragraph-xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-paragraph-xl);
+}
+
+.card p:not(:last-child) {
+  margin-bottom: var(--paragraph-spacing-xl);
+}
+
+@media (max-width: 47.999rem) {
+  .card {
+    padding: var(--scale-500);
+    border-radius: var(--border-radius-lg);
+  }
+
+  .card p {
+    font-size: var(--font-size-paragraph-md);
+    line-height: var(--line-height-paragraph-md);
+  }
+
+  .card p:not(:last-child) {
+    margin-bottom: var(--scale-400);
+  }
+}

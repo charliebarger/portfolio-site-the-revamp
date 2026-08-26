@@ -31,7 +31,13 @@ const ContentHeader = ({
       )}
 
       <div className={styles.titleGroup}>
-        <Heading id={titleId} className={clsx("text-heading-2", styles.title)}>
+        <Heading
+          id={titleId}
+          className={clsx(
+            headingLevel === 2 ? "text-heading-2" : "text-heading-3",
+            styles.title,
+          )}
+        >
           {title}
         </Heading>
         {extraInfo && (

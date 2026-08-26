@@ -31,6 +31,88 @@
   gap: var(--scale-800);
 }
 
+.process {
+  padding: var(--scale-1100);
+}
+
+.processContent {
+  display: flex;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: var(--scale-1000);
+}
+
+.processFlow {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.processItem {
+  display: contents;
+}
+
+.processStep {
+  min-width: 0;
+  flex: 1;
+}
+
+.processArrow {
+  width: var(--icon-size-base);
+  height: var(--icon-size-base);
+  margin-inline: var(--scale-200);
+  flex: 0 0 var(--icon-size-base);
+  color: var(--color-icon-action);
+}
+
+.detailedProcess {
+  padding: var(--scale-1100);
+}
+
+.detailedProcessContent {
+  display: flex;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: var(--scale-1000);
+}
+
+.numberedCards {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: var(--scale-900);
+}
+
+.summarySection {
+  padding: var(--scale-1100);
+}
+
+.summaryContent {
+  display: flex;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: var(--scale-1000);
+}
+
+.highlightGrid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--scale-600);
+}
+
+.highlightGrid > * {
+  height: 100%;
+}
+
 .title {
   color: var(--color-text-headings);
   font-family: var(--font-family-headings);
@@ -54,6 +136,62 @@
   }
 
   .challengeCards {
+    grid-template-columns: 1fr;
+    gap: var(--scale-400);
+  }
+
+  .process {
+    padding: var(--scale-700) var(--scale-400);
+  }
+
+  .processContent {
+    gap: var(--scale-700);
+  }
+
+  .processFlow {
+    flex-direction: column;
+    gap: var(--scale-300);
+  }
+
+  .processItem {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--scale-300);
+  }
+
+  .processStep {
+    width: min(100%, 20rem);
+    flex: none;
+  }
+
+  .processArrow {
+    margin: 0;
+    transform: rotate(90deg);
+  }
+
+  .detailedProcess {
+    padding: var(--scale-700) var(--scale-400);
+  }
+
+  .detailedProcessContent {
+    gap: var(--scale-700);
+  }
+
+  .numberedCards {
+    gap: var(--scale-500);
+  }
+
+  .summarySection {
+    padding: var(--scale-700) var(--scale-400);
+  }
+
+  .summaryContent {
+    gap: var(--scale-700);
+  }
+
+  .highlightGrid {
     grid-template-columns: 1fr;
     gap: var(--scale-400);
   }

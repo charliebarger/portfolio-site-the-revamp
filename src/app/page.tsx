@@ -9,7 +9,7 @@ import GradientHero from "./UI/GradientHero/GradientHero";
 
 export default function Home() {
   return (
-    <div id="top" className={styles.page}>
+    <div className={styles.page}>
       <main className={styles.main}>
         <GradientHero className={styles.intro}>
           <IntroCopy />

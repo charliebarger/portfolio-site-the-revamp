@@ -6,6 +6,26 @@
   align-items: center;
 }
 
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  text-align: left;
+}
+
+.logo[data-interactive="true"] {
+  cursor: pointer;
+}
+
+.logo:focus-visible {
+  border-radius: var(--border-radius-sm);
+  outline: var(--border-width-md) solid var(--color-border-action);
+  outline-offset: var(--scale-100);
+}
+
 .name {
   color: var(--color-text-headings);
   font-family: var(--font-family-headings);
