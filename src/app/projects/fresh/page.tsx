@@ -99,7 +99,6 @@ export default function FreshPage() {
             },
           ],
           imageSide: "right",
-          layout: "mobile",
         },
       ]}
       engineering={{
@@ -112,26 +111,31 @@ export default function FreshPage() {
           title: "Progressive Web App",
           description:
             "Built an installable application participants could use like a native mobile app.",
+          icon: "/projects/fresh/highlights/progressive-web-app.svg",
         },
         {
           title: "Role-Based Access",
           description:
             "Supported four distinct experiences with role-specific navigation and permissions.",
+          icon: "/projects/fresh/highlights/role-based-access.svg",
         },
         {
           title: "Data Visualization",
           description:
             "Transformed survey responses into meaningful visual feedback.",
+          icon: "/projects/fresh/highlights/data-visualization.svg",
         },
         {
           title: "BAC Calculator",
           description:
             "Built an educational calculator for BAC, recovery time, and impairment.",
+          icon: "/projects/fresh/highlights/bac-calculator.svg",
         },
         {
           title: "Multi-University Support",
           description:
             "Used configurable branding while maintaining one shared application.",
+          icon: "/projects/fresh/highlights/multi-university-support.svg",
         },
       ]}
       reflections={[

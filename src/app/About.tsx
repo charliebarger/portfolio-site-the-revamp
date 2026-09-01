@@ -41,7 +41,7 @@ const skills: SkillCardProps[] = [
     title: "AI-Assisted Development",
     description:
       "Leveraging AI to explore ideas, speed up development, and improve workflows throughout the product lifecycle.",
-    icon: "/about/icons/code.svg",
+    icon: "/about/icons/ai-assisted-development.svg",
   },
 ];
 

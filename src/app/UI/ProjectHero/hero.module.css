@@ -151,18 +151,23 @@
     line-height: var(--line-height-paragraph-sm);
   }
   .phones {
+    display: flex;
     width: 100%;
     min-height: 0;
-    gap: var(--scale-400);
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: var(--scale-200);
     padding: 0;
   }
   .phone {
+    width: auto;
+    max-width: 13.375rem;
     min-width: 0;
-    flex: 1;
+    flex: 1 1 0;
     font-size: var(--font-size-paragraph-sm);
   }
   .phoneImage {
-    width: min(100%, 13.375rem);
+    width: 100%;
     height: auto;
   }
 }

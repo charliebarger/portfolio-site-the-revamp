@@ -134,30 +134,36 @@ export default function FitBrothersPage() {
           title: "Fitbit Integration",
           description:
             "Synchronized wearable activity data throughout the intervention.",
+          icon: "/projects/fitbrothers/highlights/fitbit-integration.svg",
         },
         {
           title: "Server State Management",
           description:
             "Used TanStack Query for caching and data synchronization.",
+          icon: "/projects/fitbrothers/highlights/server-state-management.svg",
         },
         {
           title: "Data Visualization",
           description:
             "Built interactive charts for activity and health trends.",
+          icon: "/projects/fitbrothers/highlights/data-visualization.svg",
         },
         {
           title: "Flexible Content Platform",
           description:
             "Supported articles, embedded audio, and video resources.",
+          icon: "/projects/fitbrothers/highlights/flexible-content-platform.svg",
         },
         {
           title: "Responsive User Experience",
           description: "Optimized everyday interactions for mobile use.",
+          icon: "/projects/fitbrothers/highlights/responsive-user-experience.svg",
         },
         {
           title: "Performance & Feedback",
           description:
             "Used loading skeletons, optimistic updates, and thoughtful state management.",
+          icon: "/projects/fitbrothers/highlights/performance-feedback.svg",
         },
       ]}
       reflections={[

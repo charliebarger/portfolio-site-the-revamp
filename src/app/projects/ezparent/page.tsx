@@ -113,26 +113,31 @@ export default function EzParentPage() {
           title: "Interactive Learning Platform",
           description:
             "Built reusable learning experiences around video, reflection, and practice.",
+          icon: "/projects/ezparent/highlights/interactive-learning.svg",
         },
         {
           title: "Localization",
           description:
             "Supported content and workflows across audiences and study sites.",
+          icon: "/projects/ezparent/highlights/localization.svg",
         },
         {
           title: "Role-Based Experiences",
           description:
             "Created distinct experiences for parents, facilitators, and researchers.",
+          icon: "/projects/ezparent/highlights/role-based-experiences.svg",
         },
         {
           title: "Dashboard Design",
           description:
             "Made participant and program activity visible to research teams.",
+          icon: "/projects/ezparent/highlights/dashboard-design.svg",
         },
         {
           title: "Usability Testing",
           description:
             "Iterated alongside researchers and participants over multiple studies.",
+          icon: "/projects/ezparent/highlights/usability-testing.svg",
         },
       ]}
       reflections={[
