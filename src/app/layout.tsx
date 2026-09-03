@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     "Charlie Barger is a UI engineer designing and engineering thoughtful digital products from concept to production.",
   authors: [{ name: "Charlie Barger" }],
   creator: "Charlie Barger",
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
 };
 
 const themeInitializationScript = `
@@ -44,7 +48,9 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitializationScript }} />
+        <script
+          dangerouslySetInnerHTML={{ __html: themeInitializationScript }}
+        />
       </head>
       <body suppressHydrationWarning>
         <div className={styles.siteHeader}>
