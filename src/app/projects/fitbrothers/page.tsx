@@ -21,12 +21,12 @@ export default function FitBrothersPage() {
           variant="mobile"
           phones={[
             {
-              src: "/projects/fitbrothers/case-study/hero-1.png",
+              src: "/projects/fitbrothers/new-images/personalized-goals.png",
               alt: "FitBrothers goals screen",
               label: "",
             },
             {
-              src: "/projects/fitbrothers/case-study/hero-2.png",
+              src: "/projects/fitbrothers/new-images/activity-health-1.png",
               alt: "FitBrothers activity dashboard",
               label: "",
             },
@@ -59,7 +59,7 @@ export default function FitBrothersPage() {
             "Weekly activity goals adapted to each participant and translated wearable data into clear, motivating progress.",
           images: [
             {
-              src: "/projects/fitbrothers/case-study/goals.png",
+              src: "/projects/fitbrothers/new-images/personalized-goals.png",
               alt: "FitBrothers personalized goals",
             },
           ],
@@ -73,8 +73,12 @@ export default function FitBrothersPage() {
             "Dashboards brought activity, weight, and health trends together in one understandable mobile experience.",
           images: [
             {
-              src: "/projects/fitbrothers/case-study/tracking.png",
-              alt: "FitBrothers health tracking",
+              src: "/projects/fitbrothers/new-images/activity-health-1.png",
+              alt: "FitBrothers step counts and daily, weekly, and monthly progress",
+            },
+            {
+              src: "/projects/fitbrothers/new-images/activity-health-2.png",
+              alt: "FitBrothers exercise trends and Fitbit activity log",
             },
           ],
           imageSide: "left",
@@ -87,8 +91,8 @@ export default function FitBrothersPage() {
             "Friendly challenges and social comparison encouraged participants to stay active together.",
           images: [
             {
-              src: "/projects/fitbrothers/case-study/challenges.png",
-              alt: "FitBrothers challenge screen",
+              src: "/projects/fitbrothers/new-images/completion.png",
+              alt: "FitBrothers upcoming Step to Health challenge and enrollment countdown",
             },
           ],
           imageSide: "right",
@@ -101,8 +105,12 @@ export default function FitBrothersPage() {
             "Points, badges, and rewards made progress visible and helped sustain engagement.",
           images: [
             {
-              src: "/projects/fitbrothers/case-study/rewards.png",
-              alt: "FitBrothers rewards",
+              src: "/projects/fitbrothers/new-images/rewards-1.png",
+              alt: "FitBrothers exercise achievement badges",
+            },
+            {
+              src: "/projects/fitbrothers/new-images/rewards-2.png",
+              alt: "FitBrothers rewards market with points and available prizes",
             },
           ],
           imageSide: "left",
@@ -115,8 +123,8 @@ export default function FitBrothersPage() {
             "Flexible articles, audio, and video resources connected daily activity with practical health education.",
           images: [
             {
-              src: "/projects/fitbrothers/case-study/content.png",
-              alt: "FitBrothers educational content",
+              src: "/projects/fitbrothers/new-images/education.png",
+              alt: "FitBrothers Coaching Corner article and audio about a heart-healthy diet",
             },
           ],
           imageSide: "right",
