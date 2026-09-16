@@ -3,7 +3,7 @@ import { expect, within } from "storybook/test";
 import Mail from "@/assets/mail.svg?react";
 import ContactLink from "./Link";
 
-const meta = {
+const meta: Meta<typeof ContactLink> = {
   title: "UI/ContactLink",
   component: ContactLink,
   parameters: { layout: "centered" },
@@ -13,7 +13,7 @@ const meta = {
     text: "Email Charlie",
     icon: <Mail aria-hidden="true" />,
   },
-} satisfies Meta<typeof ContactLink>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

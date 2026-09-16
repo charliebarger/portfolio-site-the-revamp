@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, within } from "storybook/test";
 import PreviewCard from "./PreviewCard";
 
-const meta = {
+const meta: Meta<typeof PreviewCard> = {
   title: "UI/PreviewCard",
   component: PreviewCard,
-} satisfies Meta<typeof PreviewCard>;
+};
 
 export default meta;
 

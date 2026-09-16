@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, within } from "storybook/test";
 import Footer from "./Footer";
 
-const meta = {
+const meta: Meta<typeof Footer> = {
   title: "UI/Footer",
   component: Footer,
   parameters: { layout: "fullscreen" },
   tags: ["autodocs"],
-} satisfies Meta<typeof Footer>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

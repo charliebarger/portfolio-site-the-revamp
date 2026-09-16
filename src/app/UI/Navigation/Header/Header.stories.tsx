@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import Header from "./Header";
 
-const meta = {
+const meta: Meta<typeof Header> = {
   title: "UI/Header",
   component: Header,
   parameters: {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Header>;
+};
 
 export default meta;
 

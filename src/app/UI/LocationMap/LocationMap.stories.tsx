@@ -4,7 +4,7 @@ import LocationMap from "./LocationMap";
 
 const originalFetch = globalThis.fetch;
 
-const meta = {
+const meta: Meta<typeof LocationMap> = {
   title: "UI/LocationMap",
   component: LocationMap,
   parameters: { layout: "centered" },
@@ -15,7 +15,7 @@ const meta = {
       globalThis.fetch = originalFetch;
     };
   },
-} satisfies Meta<typeof LocationMap>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

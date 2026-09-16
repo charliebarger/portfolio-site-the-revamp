@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, within } from "storybook/test";
 import ContentHeader from "./ContentHeader";
 
-const meta = {
+const meta: Meta<typeof ContentHeader> = {
   title: "UI/ContentHeader",
   component: ContentHeader,
   parameters: { layout: "padded" },
@@ -13,7 +13,7 @@ const meta = {
     description:
       "Mechanically ventilated ICU patients are often unable to communicate, making it difficult for nurses to assess their needs and provide individualized care. Years of research existed as a complex academic survey that needed to be transformed into a real clinical workflow. The challenge was creating an intuitive application that nurses could complete quickly during patient care while generating personalized communication plans.",
   },
-} satisfies Meta<typeof ContentHeader>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

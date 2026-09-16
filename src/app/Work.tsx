@@ -5,7 +5,7 @@ import Timeline from "@/assets/timeline.svg?react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import styles from "./work.module.css";
 
-const projects = [
+const projects: PreviewCardProps[] = [
   {
     side: "left",
     img: {
@@ -68,7 +68,7 @@ const projects = [
     },
     href: "/projects/fresh",
   },
-] satisfies PreviewCardProps[];
+];
 
 interface StarParticle {
   id: number;
@@ -109,33 +109,9 @@ const createStarParticles = (intensity: number): StarParticle[] =>
     },
   );
 
-const playSparkle = async (audioContext: AudioContext) => {
-  if (audioContext.state === "suspended") {
-    await audioContext.resume();
-  }
-
-  if (audioContext.state === "closed") return;
-
-  const gain = audioContext.createGain();
-  const now = audioContext.currentTime;
-
-  gain.gain.setValueAtTime(0.035, now);
-  gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
-  gain.connect(audioContext.destination);
-
-  [523.25, 783.99].forEach((frequency, index) => {
-    const oscillator = audioContext.createOscillator();
-    oscillator.type = "sine";
-    oscillator.frequency.value = frequency;
-    oscillator.connect(gain);
-    oscillator.start(now + index * 0.055);
-    oscillator.stop(now + 0.24 + index * 0.055);
-  });
-};
-
 export default function Work() {
   const workRef = useRef<HTMLElement>(null);
-  const audioContextRef = useRef<AudioContext | null>(null);
+  const sparkleAudioRef = useRef<HTMLAudioElement | null>(null);
   const burstCountRef = useRef(0);
   const burstTimeoutsRef = useRef<number[]>([]);
   const [isTimelineVisible, setIsTimelineVisible] = useState(false);
@@ -154,7 +130,7 @@ export default function Work() {
       window.removeEventListener("scroll", startTimelineAtTop);
     };
 
-    window.addEventListener("scroll", startTimelineAtTop, { passive: true });
+    window.addEventListener("scroll", startTimelineAtTop);
     const frame = window.requestAnimationFrame(startTimelineAtTop);
 
     return () => {
@@ -166,7 +142,7 @@ export default function Work() {
   useEffect(
     () => () => {
       burstTimeoutsRef.current.forEach(window.clearTimeout);
-      void audioContextRef.current?.close();
+      sparkleAudioRef.current?.pause();
     },
     [],
   );
@@ -176,7 +152,7 @@ export default function Work() {
     const nextBurst = burstCountRef.current;
 
     setTimelineColor((color) => {
-      const nextColor = Math.floor(Math.random() * 3);
+      const nextColor = Math.floor(Math.random() * (particleColors.length - 1));
       return nextColor >= color ? nextColor + 1 : nextColor;
     });
     setStarBursts((bursts) => [
@@ -190,8 +166,13 @@ export default function Work() {
       );
     }, 900);
     burstTimeoutsRef.current.push(timeout);
-    audioContextRef.current ??= new AudioContext();
-    void playSparkle(audioContextRef.current);
+    sparkleAudioRef.current ??= new Audio("/audio/sparkle.wav");
+    const audio = sparkleAudioRef.current;
+    audio.volume = 0.15;
+    audio.currentTime = 0;
+    void audio.play().catch(() => {
+      // Keep the celebration working if audio playback is unavailable.
+    });
   };
 
   return (

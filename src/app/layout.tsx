@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { fontVariableClasses } from "./fonts";
 import Header from "./UI/Navigation/Header/Header";
+import RouteScroll from "./UI/Navigation/RouteScroll";
 import styles from "./layout.module.css";
 import "./globals.css";
 import "./design-system.css";
@@ -34,6 +35,23 @@ const themeInitializationScript = `
   })();
 `;
 
+const anchorInitializationScript = `
+  (() => {
+    if (location.pathname !== "/") return;
+    const id = location.hash.slice(1);
+    if (!["work", "about", "contact"].includes(id)) return;
+
+    const observer = new MutationObserver(() => {
+      const target = document.getElementById(id);
+      if (!target) return;
+      target.scrollIntoView({ behavior: "instant", block: "start" });
+      observer.disconnect();
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+    document.addEventListener("DOMContentLoaded", () => observer.disconnect(), { once: true });
+  })();
+`;
+
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const themeCookie = (await cookies()).get("theme")?.value;
   const savedTheme =
@@ -42,6 +60,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${fontVariableClasses.join(" ")} antialiased`}
       data-theme={savedTheme}
       style={savedTheme ? { colorScheme: savedTheme } : undefined}
@@ -51,8 +70,12 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         <script
           dangerouslySetInnerHTML={{ __html: themeInitializationScript }}
         />
+        <script
+          dangerouslySetInnerHTML={{ __html: anchorInitializationScript }}
+        />
       </head>
       <body suppressHydrationWarning>
+        <RouteScroll />
         <div className={styles.siteHeader}>
           <Header />
         </div>

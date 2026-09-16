@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, userEvent, within } from "storybook/test";
 import NavBar from "./NavBar";
 
-const meta = {
+const meta: Meta<typeof NavBar> = {
   title: "UI/Navigation/NavBar",
   component: NavBar,
   parameters: {
@@ -12,7 +12,7 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof NavBar>;
+};
 
 export default meta;
 

@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, within } from "storybook/test";
 import GetInTouch from "./GetInTouch";
 
-const meta = {
+const meta: Meta<typeof GetInTouch> = {
   title: "UI/GetInTouch",
   component: GetInTouch,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-} satisfies Meta<typeof GetInTouch>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

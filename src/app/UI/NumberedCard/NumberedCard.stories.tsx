@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, within } from "storybook/test";
 import NumberedCard from "./NumberedCard";
 
-const meta = {
+const meta: Meta<typeof NumberedCard> = {
   title: "UI/NumberedCard",
   component: NumberedCard,
   parameters: { layout: "padded" },
@@ -19,7 +19,7 @@ const meta = {
       alt: "SPEACS clinical communication interface",
     },
   },
-} satisfies Meta<typeof NumberedCard>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

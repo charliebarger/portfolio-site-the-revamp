@@ -13,7 +13,7 @@ const images = [
   },
 ];
 
-const meta = {
+const meta: Meta<typeof ProjectCarousel> = {
   title: "UI/Projects/ProjectCarousel",
   component: ProjectCarousel,
   parameters: { layout: "centered" },
@@ -22,7 +22,7 @@ const meta = {
     images,
     label: "SPEACS interface gallery",
   },
-} satisfies Meta<typeof ProjectCarousel>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

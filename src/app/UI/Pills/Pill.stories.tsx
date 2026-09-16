@@ -2,14 +2,14 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, within } from "storybook/test";
 import Pill from "./Pill";
 
-const meta = {
+const meta: Meta<typeof Pill> = {
   title: "UI/Pill",
   component: Pill,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Pill>;
+};
 
 export default meta;
 

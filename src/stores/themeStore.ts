@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
 
 export type Theme = "light" | "dark";
 
@@ -23,28 +22,19 @@ const saveThemeCookie = (theme: Theme) => {
   document.cookie = `theme=${theme}; Path=/; Max-Age=31536000; SameSite=Lax`;
 };
 
-export const useThemeStore = create<ThemeStore>()(
-  persist(
-    (set, get) => ({
-      theme: "light",
-      initializeTheme: (theme) => {
-        applyTheme(theme);
-        set({ theme });
-      },
-      setTheme: (theme) => {
-        applyTheme(theme);
-        saveThemeCookie(theme);
-        set({ theme });
-      },
-      toggleTheme: () => {
-        const nextTheme = get().theme === "dark" ? "light" : "dark";
-        get().setTheme(nextTheme);
-      },
-    }),
-    {
-      name: "portfolio-theme",
-      partialize: ({ theme }) => ({ theme }),
-      skipHydration: true,
-    },
-  ),
-);
+export const useThemeStore = create<ThemeStore>()((set, get) => ({
+  theme: "light",
+  initializeTheme: (theme) => {
+    applyTheme(theme);
+    set({ theme });
+  },
+  setTheme: (theme) => {
+    applyTheme(theme);
+    saveThemeCookie(theme);
+    set({ theme });
+  },
+  toggleTheme: () => {
+    const nextTheme = get().theme === "dark" ? "light" : "dark";
+    get().setTheme(nextTheme);
+  },
+}));

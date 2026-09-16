@@ -3,7 +3,12 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import styles from "./header.module.css";
+import NextLink, { type LinkProps } from "next/link";
+import type { ComponentType } from "react";
 import NavBar from "../NavBar/NavBar";
+
+// Adapt Next’s generated JSX return type to the app’s React types.
+const Link = NextLink as unknown as ComponentType<LinkProps<string>>;
 
 const Header = () => {
   const pathname = usePathname();
@@ -54,16 +59,14 @@ const Header = () => {
             <span className={styles.title}>UI Engineer</span>
           </button>
         ) : (
-          // The project currently has incompatible React/Next Link types.
-          // eslint-disable-next-line @next/next/no-html-link-for-pages
-          <a
+          <Link
             className={styles.logo}
             href="/"
             aria-label="Go to Charlie Barger’s home page"
           >
             <h1 className={styles.name}>Charlie Barger</h1>
             <span className={styles.title}>UI Engineer</span>
-          </a>
+          </Link>
         )}
       </section>
       <NavBar />

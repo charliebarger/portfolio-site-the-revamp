@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, within } from "storybook/test";
 import ProjectHero from "./ProjectHero";
 
-const meta = {
+const meta: Meta<typeof ProjectHero> = {
   title: "UI/Projects/ProjectHero",
   component: ProjectHero,
   parameters: { layout: "fullscreen" },
@@ -10,7 +10,7 @@ const meta = {
   args: {
     children: <h1>SPEACS</h1>,
   },
-} satisfies Meta<typeof ProjectHero>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

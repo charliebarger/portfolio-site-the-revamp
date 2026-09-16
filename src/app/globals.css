@@ -4,10 +4,15 @@ html {
   scroll-behavior: auto;
 }
 
+html[data-smooth-anchors="true"]:has([data-homepage]) {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  transition: var(--duration-interactive) var(--ease-interactive);
 }
 
 body {
@@ -24,13 +29,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html.theme-switching,
+/* html.theme-switching,
 html.theme-switching *,
 html.theme-switching *::before,
 html.theme-switching *::after {
   transition-duration: 0s !important;
   transition-delay: 0s !important;
-}
+} */
 
 body.page-wobble {
   transform-origin: center top;
@@ -76,7 +81,8 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
+  html,
+  html[data-smooth-anchors="true"]:has([data-homepage]) {
     scroll-behavior: auto;
   }
 

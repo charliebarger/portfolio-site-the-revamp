@@ -1,18 +1,23 @@
 "use client";
 
+import type { Route } from "next";
 import styles from "./navBar.module.css";
 import { usePathname } from "next/navigation";
 import Moon from "@/assets/moon.svg?react";
 import Sun from "@/assets/sun.svg?react";
 import { useThemeStore, type Theme } from "@/stores/themeStore";
 import { useEffect, useRef, useState } from "react";
-import SmoothAnchorLink from "../../SmoothAnchorLink";
+import NextLink, { type LinkProps } from "next/link";
+import type { ComponentType } from "react";
+
+// Adapt Next’s generated JSX return type to the app’s React types.
+const Link = NextLink as unknown as ComponentType<LinkProps<string>>;
 
 const isTheme = (value: string | undefined): value is Theme =>
   value === "light" || value === "dark";
 
 interface NavBarItems {
-  href: string;
+  href: Route;
   label: string;
 }
 
@@ -64,8 +69,6 @@ const NavBar = () => {
     const initialTheme = document.documentElement.dataset.theme;
     if (isTheme(initialTheme)) initializeTheme(initialTheme);
 
-    void useThemeStore.persist.rehydrate();
-
     const observer = new MutationObserver(syncFromDocument);
     observer.observe(document.documentElement, {
       attributes: true,
@@ -88,9 +91,19 @@ const NavBar = () => {
 
     const sectionIds = ["work", "about", "contact"];
     let animationFrame = 0;
+    let isManualScroll = false;
+    const markManualScroll = () => { isManualScroll = true; };
+    const stopManualScroll = () => { isManualScroll = false; };
+    const handleScrollKey = (event: KeyboardEvent) => {
+      if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(event.key)) {
+        markManualScroll();
+      }
+    };
 
     const updateActiveAnchor = () => {
       animationFrame = 0;
+      // A queued scroll event can outlive this route during Back/Forward navigation.
+      if (window.location.pathname !== "/") return;
       const marker = window.scrollY + Math.min(160, window.innerHeight * 0.2);
       let nextAnchor = "top";
 
@@ -112,12 +125,9 @@ const NavBar = () => {
           : `${window.location.pathname}${window.location.search}#${nextAnchor}`;
       const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
 
-      if (currentUrl !== nextUrl) {
-        window.history.replaceState(
-          window.history.state,
-          "",
-          nextUrl,
-        );
+      if (isManualScroll && currentUrl !== nextUrl) {
+        // Let Next.js sync its router state and preserve its own history metadata.
+        window.history.replaceState(null, "", nextUrl);
       }
     };
 
@@ -126,14 +136,31 @@ const NavBar = () => {
       animationFrame = window.requestAnimationFrame(updateActiveAnchor);
     };
 
-    updateActiveAnchor();
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
+    const startTracking = () => {
+      requestUpdate();
+      window.addEventListener("scroll", requestUpdate, { passive: true });
+      window.addEventListener("resize", requestUpdate);
+    };
+
+    // Do not replace an incoming fragment before the browser has reached it.
+    if (document.readyState === "complete") startTracking();
+    else window.addEventListener("load", startTracking, { once: true });
+    window.addEventListener("wheel", markManualScroll, { passive: true });
+    window.addEventListener("touchmove", markManualScroll, { passive: true });
+    window.addEventListener("keydown", handleScrollKey);
+    window.addEventListener("click", stopManualScroll, true);
+    window.addEventListener("popstate", stopManualScroll);
 
     return () => {
       if (animationFrame) window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("load", startTracking);
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestUpdate);
+      window.removeEventListener("wheel", markManualScroll);
+      window.removeEventListener("touchmove", markManualScroll);
+      window.removeEventListener("keydown", handleScrollKey);
+      window.removeEventListener("click", stopManualScroll, true);
+      window.removeEventListener("popstate", stopManualScroll);
     };
   }, [pathname]);
 
@@ -185,9 +212,10 @@ const NavBar = () => {
         aria-label="Primary navigation"
       >
         {links.map((link) => (
-          <SmoothAnchorLink
+          <Link
             key={link.href}
             href={link.href}
+            replace={pathname === "/"}
             className={`${styles.linkItem} text-body-lg`}
             data-active={
               pathname === "/" &&
@@ -198,7 +226,7 @@ const NavBar = () => {
             onClick={() => setIsMenuOpen(false)}
           >
             {link.label}
-          </SmoothAnchorLink>
+          </Link>
         ))}
         <button
           className={styles.themeToggle}

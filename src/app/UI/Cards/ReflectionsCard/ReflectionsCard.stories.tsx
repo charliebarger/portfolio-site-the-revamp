@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, within } from "storybook/test";
 import ReflectionsCard from "./ReflectionsCard";
 
-const meta = {
+const meta: Meta<typeof ReflectionsCard> = {
   title: "UI/Cards/ReflectionsCard",
   component: ReflectionsCard,
   parameters: { layout: "padded" },
@@ -13,7 +13,7 @@ const meta = {
       "The project also shaped how I approach application architecture. Building a survey-driven application highlighted the importance of designing systems that remain flexible as workflows evolve. Those lessons influenced many of the architectural decisions I later made while developing SPEACS, where I placed a greater emphasis on reusable components, dynamic workflows, and maintainable application structure.",
     ],
   },
-} satisfies Meta<typeof ReflectionsCard>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

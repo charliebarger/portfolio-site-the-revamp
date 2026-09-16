@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, fn, userEvent, within } from "storybook/test";
-import Button from "./Button";
+import Button, { type ButtonProps } from "./Button";
 
-const meta = {
+const meta: Meta<typeof Button> = {
   title: "UI/Button",
   component: Button,
   parameters: {
@@ -34,11 +34,12 @@ const meta = {
       options: ["default", "pill"],
     },
   },
-} satisfies Meta<typeof Button>;
+};
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<Extract<ButtonProps, { kind?: "button" }>>;
+type LinkStory = StoryObj<Extract<ButtonProps, { kind: "link" }>>;
 
 export const Default: Story = {
   args: {
@@ -90,7 +91,7 @@ export const Pill: Story = {
   },
 };
 
-export const Link: Story = {
+export const Link: LinkStory = {
   args: {
     kind: "link",
     href: "/projects",

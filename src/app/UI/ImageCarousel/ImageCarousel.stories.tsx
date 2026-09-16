@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, fireEvent, within } from "storybook/test";
 import ImageCarousel from "./ImageCarousel";
 
-const meta = {
+const meta: Meta<typeof ImageCarousel> = {
   title: "UI/ImageCarousel",
   component: ImageCarousel,
   parameters: { layout: "fullscreen" },
@@ -27,7 +27,7 @@ const meta = {
       },
     ],
   },
-} satisfies Meta<typeof ImageCarousel>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

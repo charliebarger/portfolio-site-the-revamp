@@ -1,3 +1,9 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-1100);
+}
+
 .intro {
   padding: var(--scale-700);
   position: relative;
@@ -27,11 +33,11 @@
 }
 
 .avatarSpriteLoading {
-  animation: waveOnLoad 900ms steps(9, end);
+  animation: wave 900ms steps(9, end);
 }
 
 .avatar:hover .avatarSprite {
-  animation: waveOnHover 900ms steps(9, end);
+  animation: wave 900ms steps(9, end);
 }
 
 .centerWrapper {
@@ -122,7 +128,7 @@
   }
 }
 
-@keyframes waveOnLoad {
+@keyframes wave {
   from {
     background-position: 0 0;
   }
@@ -132,7 +138,7 @@
   }
 }
 
-@keyframes waveOnHover {
+@keyframes wave {
   from {
     background-position: 0 0;
   }

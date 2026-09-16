@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, within } from "storybook/test";
 import SkillCard from "./SkillCard";
 
-const meta = {
+const meta: Meta<typeof SkillCard> = {
   title: "UI/SkillCard",
   component: SkillCard,
   parameters: { layout: "centered" },
@@ -14,7 +14,7 @@ const meta = {
       </ul>
     ),
   ],
-} satisfies Meta<typeof SkillCard>;
+};
 
 export default meta;
 

@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, fireEvent, userEvent, waitFor, within } from "storybook/test";
 import MaggieMaker from "./MaggieMaker";
 
-const meta = {
+const meta: Meta<typeof MaggieMaker> = {
   title: "UI/MaggieMaker",
   component: MaggieMaker,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-} satisfies Meta<typeof MaggieMaker>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
