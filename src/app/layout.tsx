@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
+import { Analytics } from "@vercel/analytics/next";
 import { fontVariableClasses } from "./fonts";
 import Header from "./UI/Navigation/Header/Header";
 import RouteScroll from "./UI/Navigation/RouteScroll";
@@ -80,6 +81,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           <Header />
         </div>
         {children}
+        <Analytics />
       </body>
     </html>
   );
