@@ -1,10 +1,10 @@
 import Image from "next/image";
-import SkillCard, { type SkillCardProps } from "./UI/Cards/SkillCard/SkillCard";
+import SkillCard, { type SkillCardProps } from "@/app/UI/Cards/SkillCard/SkillCard";
 import ImageCarousel, {
   type CarouselImage,
-} from "./UI/ImageCarousel/ImageCarousel";
-import MaggieMaker from "./UI/MaggieMaker/MaggieMaker";
-import styles from "./about/about.module.css";
+} from "@/app/UI/ImageCarousel/ImageCarousel";
+import MaggieMaker from "@/app/UI/MaggieMaker/MaggieMaker";
+import styles from "./about.module.css";
 
 const skills: SkillCardProps[] = [
   {

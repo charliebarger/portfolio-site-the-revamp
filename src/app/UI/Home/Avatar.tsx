@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "./page.module.css";
+import styles from "@/app/page.module.css";
 
 export default function Avatar() {
   const wasAtTopRef = useRef(true);

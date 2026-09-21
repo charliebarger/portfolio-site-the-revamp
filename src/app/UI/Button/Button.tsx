@@ -6,6 +6,7 @@ import type { ComponentType, MouseEventHandler, ReactNode } from "react";
 const ButtonLink = Link as unknown as ComponentType<{
   href: Route<string>;
   className: string;
+  "aria-label"?: string;
   onClick?: MouseEventHandler<HTMLAnchorElement>;
   children: ReactNode;
 }>;
@@ -28,6 +29,7 @@ interface SharedButtonProps {
   variant: ButtonVariant;
   shape: ButtonShape;
   text: string;
+  "aria-label"?: string;
   iconLeft?: ReactNode;
   iconRight?: ReactNode;
 }
@@ -74,6 +76,7 @@ const Button = <T extends string>(props: ButtonProps<T>) => {
         href={props.href}
         className={className}
         onClick={props.onClick}
+        aria-label={props["aria-label"]}
       >
         {content}
       </ButtonLink>
@@ -86,6 +89,7 @@ const Button = <T extends string>(props: ButtonProps<T>) => {
       disabled={props.disabled ?? false}
       className={className}
       onClick={props.onClick}
+      aria-label={props["aria-label"]}
     >
       {content}
     </button>

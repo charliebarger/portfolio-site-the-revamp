@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "./page.module.css";
+import styles from "@/app/page.module.css";
 
 const descriptions = [
   "Currently building research-driven digital products at Klein Buendel",

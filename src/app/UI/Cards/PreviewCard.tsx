@@ -63,6 +63,7 @@ const PreviewCard = <T extends string>({
           variant="default"
           shape="pill"
           text="Learn More"
+          aria-label={`Learn more about ${text.title}`}
           iconRight={
             <ArrowForward
               className={buttonStyles.sway}

@@ -1,10 +1,10 @@
 import styles from "./page.module.css";
-import IntroCopy from "./IntroCopy";
+import IntroCopy from "./UI/Home/IntroCopy";
 import GetInTouch from "./UI/GetInTouch";
-import Avatar from "./Avatar";
-import Work from "./Work";
-import About from "./About";
-import Contact from "./Contact";
+import Avatar from "./UI/Home/Avatar";
+import Work from "./UI/Home/Work";
+import About from "./UI/Home/About";
+import Contact from "./UI/Home/Contact";
 import GradientHero from "./UI/GradientHero/GradientHero";
 
 export default function Home() {

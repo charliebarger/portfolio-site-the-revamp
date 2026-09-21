@@ -1,9 +1,9 @@
 import Github from "@/assets/github.svg?react";
 import LinkedIn from "@/assets/linkedin.svg?react";
 import Resume from "@/assets/resume.svg?react";
-import Footer from "./UI/Footer/Footer";
-import LocationMap from "./UI/LocationMap/LocationMap";
-import styles from "./contact/contact.module.css";
+import Footer from "@/app/UI/Footer/Footer";
+import LocationMap from "@/app/UI/LocationMap/LocationMap";
+import styles from "./contact.module.css";
 
 const Contact = () => (
   <div className={styles.shell}>
